@@ -12,6 +12,9 @@ namespace TicTacToe
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainMenuForm());
+            // Cool Kommentar :D
+
+
         }
     }
 }
