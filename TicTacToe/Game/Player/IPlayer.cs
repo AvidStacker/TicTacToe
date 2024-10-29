@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace TicTacToe.Core.Game.Player
 {
-    internal interface IPlayer
+    public interface IPlayer
     {
+        string GetName();
+        string GetSymbol();
+        Color GetColor();
+        int GetHighscore();
+
+        void UpdateHighscore(int highscore);
+        void SetHighscore(int highscore);
     }
 }
