@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TicTacToe.Core.Game.Player
 {
-    internal class HumanPlayer
+    public class HumanPlayer : IPlayer
     {
+        private string name;
+        private string symbol;
+        private Color color;
+        private int highscore;
     }
-}
