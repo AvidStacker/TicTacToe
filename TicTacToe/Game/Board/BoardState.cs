@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToe.Core.Game
+namespace TicTacToe.Game.Board
 {
-    internal class Board
+    public enum BoardState
     {
+        Ongoinggame,
+        XWins,
+        OWins,
+        Draw
     }
 }
