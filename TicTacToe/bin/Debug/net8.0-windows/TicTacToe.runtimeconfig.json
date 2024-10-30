@@ -11,13 +11,8 @@
         "version": "8.0.0"
       }
     ],
-    "additionalProbingPaths": [
-      "C:\\Users\\Milad\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Milad\\.nuget\\packages"
-    ],
     "configProperties": {
-      "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,
-      "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
+      "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true
     }
   }
 }

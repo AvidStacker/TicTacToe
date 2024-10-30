@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\",
+  "WorkspaceRootPath": "D:\\Visual Studio\\Group_Project\\TicTacToe\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\forms\\gameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:forms\\gameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|d:\\visual studio\\group_project\\tictactoe\\game\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:game\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\tictactoe.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:tictactoe.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|d:\\visual studio\\group_project\\tictactoe\\game\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:game\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\forms\\mainmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|D:\\Visual Studio\\Group_Project\\TicTacToe\\forms\\mainmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:forms\\mainmenuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|d:\\visual studio\\group_project\\tictactoe\\tictactoe.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:tictactoe.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,27 +26,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GameForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\Forms\\GameForm.cs",
-              "RelativeDocumentMoniker": "Forms\\GameForm.cs",
-              "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\Forms\\GameForm.cs [Design]",
-              "RelativeToolTip": "Forms\\GameForm.cs [Design]",
+              "Title": "Game.cs",
+              "DocumentMoniker": "D:\\Visual Studio\\Group_Project\\TicTacToe\\Game\\Game.cs",
+              "RelativeDocumentMoniker": "Game\\Game.cs",
+              "ToolTip": "D:\\Visual Studio\\Group_Project\\TicTacToe\\Game\\Game.cs",
+              "RelativeToolTip": "Game\\Game.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T09:19:18.346Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-28T09:42:29.194Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TicTacToe",
-              "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\TicTacToe.csproj",
+              "Title": "Board.cs",
+              "DocumentMoniker": "D:\\Visual Studio\\Group_Project\\TicTacToe\\Game\\Board.cs",
+              "RelativeDocumentMoniker": "Game\\Board.cs",
+              "ToolTip": "D:\\Visual Studio\\Group_Project\\TicTacToe\\Game\\Board.cs",
+              "RelativeToolTip": "Game\\Board.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T09:42:25.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TicTacToe.csproj",
+              "DocumentMoniker": "D:\\Visual Studio\\Group_Project\\TicTacToe\\TicTacToe.csproj",
               "RelativeDocumentMoniker": "TicTacToe.csproj",
-              "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\TicTacToe.csproj",
+              "ToolTip": "D:\\Visual Studio\\Group_Project\\TicTacToe\\TicTacToe.csproj",
               "RelativeToolTip": "TicTacToe.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -53,9 +75,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "MainMenuForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\Forms\\MainMenuForm.cs",
+              "DocumentMoniker": "D:\\Visual Studio\\Group_Project\\TicTacToe\\Forms\\MainMenuForm.cs",
               "RelativeDocumentMoniker": "Forms\\MainMenuForm.cs",
-              "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\Forms\\MainMenuForm.cs [Design]",
+              "ToolTip": "D:\\Visual Studio\\Group_Project\\TicTacToe\\Forms\\MainMenuForm.cs [Design]",
               "RelativeToolTip": "Forms\\MainMenuForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T09:17:48.961Z",
