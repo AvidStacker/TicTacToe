@@ -52,7 +52,19 @@ namespace TicTacToe.Core.Game.Player
             {
                 this.highscore = highscore;
             }
+
+
+            public PlayerData GetPlayerData()
+            {
+                return new PlayerData
+                {
+                    Name = name,
+                    Symbol = symbol,
+                    HighScore = highscore
+                };
+            }
         }
+
     }
 
 }
