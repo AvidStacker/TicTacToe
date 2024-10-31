@@ -46,23 +46,23 @@ namespace TicTacToe.Core.Game.Player
         }
 
         // Private method to set highscore
-        private void SetHighscore(int highscore)
+        void SetHighscore(int highscore)
         {
             if (highscore > this.highscore)
             {
                 this.highscore = highscore;
             }
 
+        }
 
-            public PlayerData GetPlayerData()
+        public PlayerData GetPlayerData()
+        {
+            return new PlayerData
             {
-                return new PlayerData
-                {
-                    Name = name,
-                    Symbol = symbol,
-                    HighScore = highscore
-                };
-            }
+                Name = name,
+                Symbol = symbol,
+                HighScore = highscore
+            };
         }
 
     }

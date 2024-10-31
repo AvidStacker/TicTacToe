@@ -14,7 +14,6 @@ namespace TicTacToe.Core.Game.Player
         int GetHighscore();
 
         void UpdateHighscore(int highscore);
-        void SetHighscore(int highscore);
-        PlayerData GetPlayerData()
+        PlayerData GetPlayerData();
     }
 }
