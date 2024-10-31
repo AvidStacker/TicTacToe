@@ -8,19 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Milad\\.nuget\\packages\\": {}
+    "C:\\Users\\Isak Lagerberg\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Visual Studio\\Group_Project\\TicTacToe\\TicTacToe.csproj",
+      "projectUniqueName": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\TicTacToe.csproj",
       "projectName": "TicTacToe",
-      "projectPath": "D:\\Visual Studio\\Group_Project\\TicTacToe\\TicTacToe.csproj",
-      "packagesPath": "C:\\Users\\Milad\\.nuget\\packages\\",
-      "outputPath": "D:\\Visual Studio\\Group_Project\\TicTacToe\\obj\\",
+      "projectPath": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\TicTacToe.csproj",
+      "packagesPath": "C:\\Users\\Isak Lagerberg\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Milad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Isak Lagerberg\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
