@@ -1,79 +1,96 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks; //bibliotek som importeras
-
-namespace TicTacToe.Game.Board
+﻿namespace TicTacToe.Game.Board
 {
     public class Board
     {
-
-
-        // Kolla upp status på brädet
         public BoardState CurrentState { get; private set; } = BoardState.Ongoinggame;
 
-        // Händelse för att se förändring i spelet       
-        public event EventHandler<BoardState> StateChanged;
+        public event EventHandler<BoardState> StateChanged = delegate { };
 
-        private char[,] grid; //tvådimensionell array med x, o eller tomt för om det är en spelare där
-                              //
-         private readonly int size = 3;//talar om brädets storlek i x och y-led: 3x3
+        private char[,] grid; // 2D array representing the board
+        private readonly int size = 3; // Size of the board
 
-
-
-        public Board() //boards konstruktor körs när ett objekt skapas
+        public Board()
         {
             this.grid = new char[this.size, this.size];
             this.InitializeBoard();
         }
 
-        // Initierar brädet med tomma fält. nestlad forloop som populerar grid med mellanslag. 
+        // Initializes the board with empty fields
         private void InitializeBoard()
         {
             for (int i = 0; i < this.size; i++)
             {
                 for (int j = 0; j < this.size; j++)
                 {
-                    this.grid[i, j] = ' '; // Tomma fält representeras med mellanslag
+                    this.grid[i, j] = ' '; // Empty fields represented by spaces
                 }
             }
         }
 
-        // Metod för att göra ett drag
-        public bool MakeMove(int row, int col, char playerSymbol) //sätter x eller 0 på brädet
+        // Makes a move on the board
+        public bool MakeMove(int row, int col, char playerSymbol)
         {
             if (row < 0 || row >= this.size || col < 0 || col >= this.size || this.grid[row, col] != ' ' || this.CurrentState != BoardState.Ongoinggame)
             {
-                return false; // Ogiltigt drag eller spelet är redan avgjort
+                return false; // Invalid move or game is already over
             }
 
-            this.grid[row, col] = playerSymbol; // Sätt spelarens symbol på brädet
-            this.SetBoardState(playerSymbol); // Kontrollera om spelet är vunnet eller oavgjort
+            this.grid[row, col] = playerSymbol; // Place player's symbol on the board
+            this.SetBoardState(playerSymbol); // Check if the game has been won or drawn
             return true;
         }
 
-        // Kontrollera spelstatus (vinst, förlust, eller oavgjort)
+        // Resets the board
+        public void Reset()
+        {
+            this.InitializeBoard(); // Reinitialize the grid
+            this.CurrentState = BoardState.Ongoinggame; // Reset current state
+            OnStateChanged(this.CurrentState); // Notify observers
+        }
+
+        // Loads the board state from a provided BoardStateData object
+        public void LoadState(BoardStateData boardStateData)
+        {
+            // Ensure that the CurrentState is set from the BoardStateData
+            this.CurrentState = boardStateData.CurrentState; // This should work if BoardStateData.CurrentState is of type BoardState
+            for (int i = 0; i < this.size; i++)
+            {
+                for (int j = 0; j < this.size; j++)
+                {
+                    this.grid[i, j] = boardStateData.Grid[i, j]; // Restore grid state
+                }
+            }
+            OnStateChanged(this.CurrentState); // Notify observers of state change
+        }
+
+
+        // Returns a copy of the current grid
+        public char[,] GetCurrentGrid()
+        {
+            char[,] gridCopy = new char[this.size, this.size];
+            Array.Copy(this.grid, gridCopy, this.grid.Length); // Create a copy of the grid
+            return gridCopy;
+        }
+
+        // Checks for game status (win, loss, or draw)
         private void SetBoardState(char playerSymbol)
         {
             if (this.CheckBoardState(playerSymbol))
             {
                 this.CurrentState = playerSymbol == 'X' ? BoardState.XWins : BoardState.OWins;
-                this.OnStateChanged(this.CurrentState);
+                OnStateChanged(this.CurrentState);
             }
             else if (IsBoardFull())
             {
                 this.CurrentState = BoardState.Draw;
-                this.OnStateChanged(this.CurrentState);
+                OnStateChanged(this.CurrentState);
             }
         }
 
-        // Kontrollera om det finns en vinnare
+        // Checks if there's a winner
         public bool CheckBoardState(char playerSymbol)
         {
-            // Kontrollera rader och kolumner
+            // Check rows and columns
             for (int i = 0; i < size; i++)
             {
                 if (this.grid[i, 0] == playerSymbol && this.grid[i, 1] == playerSymbol && this.grid[i, 2] == playerSymbol ||
@@ -83,7 +100,7 @@ namespace TicTacToe.Game.Board
                 }
             }
 
-            // Kontrollera diagonaler
+            // Check diagonals
             if (this.grid[0, 0] == playerSymbol && this.grid[1, 1] == playerSymbol && this.grid[2, 2] == playerSymbol ||
                 this.grid[0, 2] == playerSymbol && this.grid[1, 1] == playerSymbol && this.grid[2, 0] == playerSymbol)
             {
@@ -93,7 +110,7 @@ namespace TicTacToe.Game.Board
             return false;
         }
 
-        // Kontrollera om brädet är fullt (oavgjort)
+        // Checks if the board is full (draw)
         private bool IsBoardFull()
         {
             for (int i = 0; i < this.size; i++)
@@ -107,17 +124,16 @@ namespace TicTacToe.Game.Board
             return true;
         }
 
-        // Metod för att hantera tillståndsförändringar
+        // Handles state change notifications
         protected virtual void OnStateChanged(BoardState newState)
         {
-            this.StateChanged?.Invoke(this, newState);
+            StateChanged?.Invoke(this, newState);
         }
 
-        // Public metoder för att få tillståndet på brädet
-        public string GetBoardState()
+        // Public method to get the current state of the board as a string
+        public BoardState GetBoardState()
         {
-            return this.CurrentState.ToString();
+            return this.CurrentState;
         }
-
     }
 }

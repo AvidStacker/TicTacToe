@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TicTacToe.Game.Player;
 
 namespace TicTacToe.Core.Game.Player
 {
@@ -52,7 +53,6 @@ namespace TicTacToe.Core.Game.Player
             {
                 this.highscore = highscore;
             }
-
         }
 
         public PlayerData GetPlayerData()
@@ -64,7 +64,5 @@ namespace TicTacToe.Core.Game.Player
                 HighScore = highscore
             };
         }
-
     }
-
 }

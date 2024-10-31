@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Milad\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Milad\\.nuget\\packages"
+      "C:\\Users\\Isak Lagerberg\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Isak Lagerberg\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,

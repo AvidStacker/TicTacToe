@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using TicTacToe.Game.Player;
 
 namespace TicTacToe.Core.Game.Player
 {
@@ -126,14 +127,28 @@ namespace TicTacToe.Core.Game.Player
             return $"Could not remove player \"{name}\"; player not found!";
         }
 
-        private void SetStartingPlayer()
+        public void SetCurrentPlayer(string name)
         {
-            _currentPlayerIndex = _random.Next(0, _players.Count);
+            for (int i = 0; i < _players.Count; i++)
+            {
+                if (_players[i].GetName() == name)
+                {
+                    _currentPlayerIndex = i; // Set current player index to the found player's index
+                    return;
+                }
+            }
+
+            throw new InvalidOperationException($"Player \"{name}\" not found.");
         }
 
         public string GetCurrentPlayerSymbol()
         {
             return _players[_currentPlayerIndex].GetSymbol();
+        }
+
+        public string GetCurrentPlayerName()
+        {
+            return _players[_currentPlayerIndex].GetName();
         }
 
         public void SwitchPlayer()
