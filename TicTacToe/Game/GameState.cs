@@ -13,6 +13,6 @@ namespace TicTacToe.Game
         public List<PlayerData> Players { get; set; }
         public string CurrentPlayerSymbol { get; set; }
         public string CurrentPlayerName { get; set; }
-        public BoardState BoardState { get; set; }
+        public BoardStateData BoardStateData { get; set; }
     }
 }

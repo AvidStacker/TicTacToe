@@ -130,10 +130,15 @@
             StateChanged?.Invoke(this, newState);
         }
 
-        // Public method to get the current state of the board as a string
-        public BoardState GetBoardState()
+        private BoardState GetBoardState()
         {
             return this.CurrentState;
+        }
+
+        // Public method to get the current state of the board as a string
+        public BoardStateData GetBoardStateData()
+        {
+            return new BoardStateData(GetCurrentGrid(), GetBoardState());
         }
     }
 }
