@@ -18,12 +18,13 @@ namespace TicTacToe.Core.Game
         public event Action<string> GameWon; // Notifies when the game is won
         public event Action<string> IllegalMove; // Notifies when an illegal move is attempted
         public event Action Draw; // Notifies when the game is a draw
+        public event Action GameReset; // Notifies when the game is reset
 
         public Game()
         {
             this._playerManager = new PlayerManager();
             this._board = new Board();
-            this._board.StateChanged += OnBoardStateChanged;
+            this._board.StateChanged += this.OnBoardStateChanged;
         }
 
         public void SaveGame(string filePath)
@@ -33,7 +34,7 @@ namespace TicTacToe.Core.Game
                 Players = this._playerManager.GetPlayersData(),
                 CurrentPlayerSymbol = this._playerManager.GetCurrentPlayerSymbol(),
                 CurrentPlayerName = this._playerManager.GetCurrentPlayerName(),
-                BoardStateData = this._board.GetBoardStateData() // Use the constructor
+                BoardStateData = this._board.GetBoardStateData()
             };
 
             string jsonString = JsonSerializer.Serialize(gameState);
@@ -47,52 +48,61 @@ namespace TicTacToe.Core.Game
                 string jsonString = File.ReadAllText(filePath);
                 var gameState = JsonSerializer.Deserialize<GameState>(jsonString);
 
-                // Restore players
                 this._playerManager.RestorePlayers(gameState.Players);
+                this._board.LoadState(gameState.BoardStateData);
+                this._playerManager.SetCurrentPlayer(gameState.CurrentPlayerName);
 
-                // Restore the board state and current player
-                this._board.LoadState(gameState.BoardStateData); // This should work if gameState.BoardState is BoardStateData
-                this._playerManager.SetCurrentPlayer(gameState.CurrentPlayerName); // Set the current player based on the game state
+                this.CheckGameState(); // Update GameForm based on loaded state
             }
         }
 
-        public void OnBoardStateChanged(object sender, BoardState newState) // Implementing the interface method
+        public void OnBoardStateChanged(object sender, BoardState newState)
         {
             this.CheckGameState();
         }
 
-        public void CheckGameState() // Implementing the interface method
+        public void CheckGameState()
         {
             if (this._board.CurrentState == BoardState.Draw)
             {
-                this.Draw?.Invoke(); // Notify the GameForm of a draw
+                this.Draw?.Invoke();
             }
             else if (this._board.CurrentState == BoardState.XWins || this._board.CurrentState == BoardState.OWins)
             {
-                this.GameWon?.Invoke(this._playerManager.GetCurrentPlayerName()); // Notify the GameForm of a win
+                this.GameWon?.Invoke(this._playerManager.GetCurrentPlayerName());
             }
         }
 
-        public void UpdateBoard(int row, int col) // Implementing the interface method
+        public void UpdateBoard(int row, int col)
         {
             char currentSymbol = this._playerManager.GetCurrentPlayerSymbol()[0];
 
             if (this._board.MakeMove(row, col, currentSymbol))
             {
-                this.TurnChanged?.Invoke(_playerManager.GetCurrentPlayerName()); // Notify the current player change
+                this.TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
                 this._playerManager.SwitchPlayer();
             }
             else
             {
-                // Handle invalid move (you might want to raise an event or log this)
-                this.IllegalMove?.Invoke("Illegal move"); // Corrected invocation
+                this.IllegalMove?.Invoke("Illegal move");
             }
         }
 
         public void ResetGame()
         {
-            this._playerManager.Reset(); // Reset player states if necessary
-            this._board.Reset(); // Reset the board
+            this._playerManager.Reset();
+            this._board.Reset();
+            this.GameReset?.Invoke(); // Notify GameForm of reset
+        }
+
+        // Provide current player's name and symbol for UI
+        public string CurrentPlayerName => this._playerManager.GetCurrentPlayerName();
+        public char CurrentPlayerSymbol => this._playerManager.GetCurrentPlayerSymbol()[0];
+
+        // Retrieve the current state of the board
+        public char[,] GetBoardState()
+        {
+            return this._board.GetGridState(); // Assumes GetCells returns a 2D char array of the board
         }
     }
 }

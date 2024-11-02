@@ -130,6 +130,13 @@
             StateChanged?.Invoke(this, newState);
         }
 
+        public char[,] GetGridState()
+        {
+            char[,] gridClone = new char[this.size, this.size];
+            Array.Copy(this.grid, gridClone, this.grid.Length); // Create a clone of the grid
+            return gridClone; // Return the clone to avoid exposing the internal state
+        }
+
         private BoardState GetBoardState()
         {
             return this.CurrentState;
