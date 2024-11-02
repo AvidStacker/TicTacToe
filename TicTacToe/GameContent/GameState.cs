@@ -11,7 +11,7 @@ namespace TicTacToe.GameContent
     public class GameState
     {
         public List<PlayerData> Players { get; set; }
-        public string CurrentPlayerSymbol { get; set; }
+        public char CurrentPlayerSymbol { get; set; }
         public string CurrentPlayerName { get; set; }
         public BoardStateData BoardStateData { get; set; }
     }

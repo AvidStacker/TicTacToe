@@ -3,7 +3,7 @@ namespace TicTacToe.GameContent.BoardContent
 {
     public class Board
     {
-        public BoardState CurrentState { get; private set; } = BoardState.Ongoinggame;
+        private BoardState CurrentState { get; set; } = BoardState.Ongoinggame;
 
         public event EventHandler<BoardState> StateChanged = delegate { };
 
@@ -46,7 +46,7 @@ namespace TicTacToe.GameContent.BoardContent
         {
             this.InitializeBoard(); // Reinitialize the grid
             this.CurrentState = BoardState.Ongoinggame; // Reset current state
-            OnStateChanged(this.CurrentState); // Notify observers
+            this.OnStateChanged(this.CurrentState); // Notify observers
         }
 
         // Loads the board state from a provided BoardStateData object
@@ -61,7 +61,7 @@ namespace TicTacToe.GameContent.BoardContent
                     this.grid[i, j] = boardStateData.Grid[i, j]; // Restore grid state
                 }
             }
-            OnStateChanged(this.CurrentState); // Notify observers of state change
+            this.OnStateChanged(this.CurrentState); // Notify observers of state change
         }
 
 
@@ -79,12 +79,12 @@ namespace TicTacToe.GameContent.BoardContent
             if (this.CheckBoardState(playerSymbol))
             {
                 this.CurrentState = playerSymbol == 'X' ? BoardState.XWins : BoardState.OWins;
-                OnStateChanged(this.CurrentState);
+                this.OnStateChanged(this.CurrentState);
             }
             else if (IsBoardFull())
             {
                 this.CurrentState = BoardState.Draw;
-                OnStateChanged(this.CurrentState);
+                this.OnStateChanged(this.CurrentState);
             }
         }
 
@@ -128,7 +128,7 @@ namespace TicTacToe.GameContent.BoardContent
         // Handles state change notifications
         protected virtual void OnStateChanged(BoardState newState)
         {
-            StateChanged?.Invoke(this, newState);
+            this.StateChanged?.Invoke(this, newState);
         }
 
         public char[,] GetGridState()
@@ -138,7 +138,7 @@ namespace TicTacToe.GameContent.BoardContent
             return gridClone; // Return the clone to avoid exposing the internal state
         }
 
-        private BoardState GetBoardState()
+        public BoardState GetBoardState()
         {
             return this.CurrentState;
         }
@@ -146,7 +146,7 @@ namespace TicTacToe.GameContent.BoardContent
         // Public method to get the current state of the board as a string
         public BoardStateData GetBoardStateData()
         {
-            return new BoardStateData(GetCurrentGrid(), GetBoardState());
+            return new BoardStateData(this.GetCurrentGrid(), this.GetBoardState());
         }
     }
 }

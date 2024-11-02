@@ -10,7 +10,7 @@ namespace TicTacToe.GameContent.PlayerContent
     public interface IPlayer
     {
         string GetName();
-        string GetSymbol();
+        char GetSymbol();
         Color GetColor();
         int GetHighscore();
 

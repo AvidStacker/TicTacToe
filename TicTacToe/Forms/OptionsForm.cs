@@ -23,7 +23,7 @@ namespace TicTacToe.Forms
         }
 
         // Event handler for turn off music button click event
-        private void TurnOff_button_Click(object sender, EventArgs e)
+        /*private void TurnOff_button_Click(object sender, EventArgs e)
         {
             // Check if music is currently on
             if (MusicManager.IsMusicOn())
@@ -38,7 +38,7 @@ namespace TicTacToe.Forms
                 MusicManager.TurnOnMusic();
                 TurnOff_button.Text = "Turn Off Music";
             }
-        }
+        }*/
 
         // Event handler for change theme button click event
         private void Change_button_Click(object sender, EventArgs e)

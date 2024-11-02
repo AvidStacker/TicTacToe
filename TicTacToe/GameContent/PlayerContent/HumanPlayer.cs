@@ -10,11 +10,11 @@ namespace TicTacToe.GameContent.PlayerContent
     public class HumanPlayer : IPlayer
     {
         private string name;
-        private string symbol;
+        private char symbol;
         private Color color;
         private int highscore;
 
-        public HumanPlayer(string name, string symbol, Color color)
+        public HumanPlayer(string name, char symbol, Color color)
         {
             this.name = name;
             this.symbol = symbol;
@@ -23,27 +23,27 @@ namespace TicTacToe.GameContent.PlayerContent
 
         public string GetName()
         {
-            return name;
+            return this.name;
         }
 
-        public string GetSymbol()
+        public char GetSymbol()
         {
-            return symbol;
+            return this.symbol;
         }
 
         public Color GetColor()
         {
-            return color;
+            return this.color;
         }
 
         public int GetHighscore()
         {
-            return highscore;
+            return this.highscore;
         }
 
         public void UpdateHighscore(int highscore)
         {
-            SetHighscore(highscore);
+            this.SetHighscore(highscore);
         }
 
         // Private method to set highscore
@@ -59,9 +59,9 @@ namespace TicTacToe.GameContent.PlayerContent
         {
             return new PlayerData
             {
-                Name = name,
-                Symbol = symbol,
-                HighScore = highscore
+                Name = this.name,
+                Symbol = this.symbol,
+                HighScore = this.highscore
             };
         }
     }

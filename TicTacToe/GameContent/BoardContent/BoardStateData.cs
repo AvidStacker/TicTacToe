@@ -12,8 +12,8 @@ namespace TicTacToe.GameContent.BoardContent
         // Constructor to initialize the grid
         public BoardStateData(char[,] grid, BoardState currentState)
         {
-            Grid = grid ?? InitializeGrid(); // If grid is null, initialize it
-            CurrentState = currentState; // Set the current state
+            this.Grid = grid ?? this.InitializeGrid(); // If grid is null, initialize it
+            this.CurrentState = currentState; // Set the current state
         }
 
         // Initializes the grid with empty spaces and returns it

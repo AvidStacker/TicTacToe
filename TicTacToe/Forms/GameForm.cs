@@ -1,70 +1,44 @@
 ﻿using System;
 using System.Windows.Forms;
-using TicTacToe.GameContent
+using TicTacToe.GameContent;
 
 namespace TicTacToe.Forms
 {
     public partial class GameForm : Form
     {
         private Game _game;
-        private Button[,] _boardButtons;
-        private Label playerLabel;
-        private Label messageLabel;
 
         public GameForm()
         {
-            InitializeComponent();
-            _game = new Game();
+            InitializeComponent(); // Call to initialize controls defined in the designer
+            this._game = new Game();
 
             // Set up event handlers for the Game class
-            _game.TurnChanged += OnTurnChanged;
-            _game.GameWon += OnGameWon;
-            _game.IllegalMove += OnIllegalMove;
-            _game.Draw += OnDraw;
-            _game.GameReset += OnGameReset;
+            this._game.TurnChanged += this.OnTurnChanged;
+            this._game.GameWon += this.OnGameWon;
+            this._game.IllegalMove += this.OnIllegalMove;
+            this._game.Draw += this.OnDraw;
+            this._game.GameReset += this.OnGameReset;
 
-            InitializeBoard();
             UpdatePlayerDisplay();
+            InitializeButtonEvents(); // Initialize button events
         }
 
-        private void InitializeBoard()
+        private void InitializeButtonEvents()
         {
-            _boardButtons = new Button[3, 3];
+            // Attach click events to board buttons
             for (int row = 0; row < 3; row++)
             {
                 for (int col = 0; col < 3; col++)
                 {
-                    var button = new Button
-                    {
-                        Width = 100,
-                        Height = 100,
-                        Location = new System.Drawing.Point(100 * col, 100 * row),
-                        Font = new System.Drawing.Font("Arial", 24, System.Drawing.FontStyle.Bold)
-                    };
-                    button.Click += (sender, args) => OnCellClicked(row, col);
-                    _boardButtons[row, col] = button;
-                    this.Controls.Add(button);
+                    _boardButtons[row, col].Click += (sender, args) => OnCellClicked(row, col);
                 }
             }
 
-            // Add Labels and Buttons
-            playerLabel = new Label { Text = "Player's turn: ", Location = new System.Drawing.Point(10, 320), AutoSize = true };
-            messageLabel = new Label { Text = "Game status", Location = new System.Drawing.Point(10, 350), AutoSize = true };
-
-            var saveButton = new Button { Text = "Save", Location = new System.Drawing.Point(250, 320) };
+            // Attach events to Save, Load, Reset buttons
             saveButton.Click += (sender, args) => _game.SaveGame("gameState.json");
-
-            var loadButton = new Button { Text = "Load", Location = new System.Drawing.Point(320, 320) };
             loadButton.Click += (sender, args) => _game.LoadGame("gameState.json");
-
-            var resetButton = new Button { Text = "Reset", Location = new System.Drawing.Point(390, 320) };
             resetButton.Click += (sender, args) => ResetGame();
-
-            this.Controls.Add(playerLabel);
-            this.Controls.Add(messageLabel);
-            this.Controls.Add(saveButton);
-            this.Controls.Add(loadButton);
-            this.Controls.Add(resetButton);
         }
 
         private void OnCellClicked(int row, int col)

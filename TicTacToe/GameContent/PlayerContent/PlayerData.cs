@@ -8,8 +8,8 @@ namespace TicTacToe.GameContent.PlayerContent
 {
     public class PlayerData
     {
-        public string Name { get; set; }
-        public string Symbol { get; set; }
+        public required string Name { get; set; }
+        public char Symbol { get; set; }
         public int HighScore { get; set; }
 
         public Color Color { get; set; }

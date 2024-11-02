@@ -12,7 +12,6 @@ namespace TicTacToe.GameContent.PlayerContent
 {
     internal class PlayerManager
     {
-
         private int _currentPlayerIndex;
         private Random _random;
         private readonly string _jsonFilepath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory)?.Parent?.Parent?.FullName ?? string.Empty,"PlayerManager.json"); 
@@ -22,12 +21,11 @@ namespace TicTacToe.GameContent.PlayerContent
 
         private List<IPlayer> _players { get; set; }
 
-
         public PlayerManager()
         {
-            _players = LoadPlayers(); //Laddar in spelare direkt när ett PlayerManager objekt skapas för att inte råka skriva över de existerande spelarna
-            UpdatePlayerHighscore(0, "Player 1");
-            UpdatePlayerHighscore(0, "Player 2");
+            this._players = LoadPlayers(); //Laddar in spelare direkt när ett PlayerManager objekt skapas för att inte råka skriva över de existerande spelarna
+            this.UpdatePlayerHighscore(0, "Player 1");
+            this.UpdatePlayerHighscore(0, "Player 2");
         }
 
         private void OnPlayerSettingsUpdated(string symbol, Color color)
@@ -36,12 +34,12 @@ namespace TicTacToe.GameContent.PlayerContent
             //Implementeras vid senare tillfälle
         }
 
-        public void InitializePlayers(string name, string symbol, Color color) //  !!  Se till att ha laddat in alla spelare innan en ny spleare skapas för att inte skriva över existerande splelare !!
+        public void InitializePlayers(string name, char symbol, Color color) //  !!  Se till att ha laddat in alla spelare innan en ny spleare skapas för att inte skriva över existerande splelare !!
         {
             try
             {
                 IPlayer player = new HumanPlayer(name, symbol, color);  //Skapar ett nytt spelarobjekt och lägger till spelaren i spelarlistan.
-                _players.Add(player);
+                this._players.Add(player);
 
             }
             catch (Exception ex)
@@ -52,7 +50,7 @@ namespace TicTacToe.GameContent.PlayerContent
 
         public void UpdatePlayerHighscore(int highscore, string name)
         {
-            foreach (IPlayer player in _players)
+            foreach (IPlayer player in this._players)
             {
                 if (player.GetName() == name)
                 {
@@ -64,7 +62,7 @@ namespace TicTacToe.GameContent.PlayerContent
         public int GetPlayerHighscore(string name)
         {
 
-            foreach (IPlayer player in _players)
+            foreach (IPlayer player in this._players)
             {
                 if (player.GetName() == name)
                 {
@@ -79,8 +77,8 @@ namespace TicTacToe.GameContent.PlayerContent
         {
             try
             {
-                string existingPLayers = File.ReadAllText(_jsonFilepath); //Läser in all text från JSON-filen till en sträng
-                _players = JsonSerializer.Deserialize<List<IPlayer>>(existingPLayers) ?? new List<IPlayer>(); //Deserialiserar alla existerande spleare och lägger till dom i spelarlistan
+                string existingPLayers = File.ReadAllText(this._jsonFilepath); //Läser in all text från JSON-filen till en sträng
+                this._players = JsonSerializer.Deserialize<List<IPlayer>>(existingPLayers) ?? new List<IPlayer>(); //Deserialiserar alla existerande spleare och lägger till dom i spelarlistan
                                                                                                              //Skapar en ny tom lista om strängen = null för att undvika eventuella fel
             }
             catch (Exception ex)
@@ -88,15 +86,15 @@ namespace TicTacToe.GameContent.PlayerContent
                 Console.WriteLine(ex.ToString());
             }
 
-            return _players; //Returnerar alla spelare som en lista
+            return this._players; //Returnerar alla spelare som en lista
         }
 
         public void SavePlayers() //Kör denna metoden innan spelet stänger ner
         {
             try
             {
-                string jsonPlayers = JsonSerializer.Serialize(_players); //Seraliserar alla spelare i den nya uppdaterade listan och sparar dom till en JSON-fil
-                File.WriteAllText(_jsonFilepath, jsonPlayers);
+                string jsonPlayers = JsonSerializer.Serialize(this._players); //Seraliserar alla spelare i den nya uppdaterade listan och sparar dom till en JSON-fil
+                File.WriteAllText(this._jsonFilepath, jsonPlayers);
             }
             catch (Exception ex) 
             { 
@@ -109,11 +107,11 @@ namespace TicTacToe.GameContent.PlayerContent
         {
             try
             {
-                foreach (IPlayer player in _players)
+                foreach (IPlayer player in this._players)
                 {
                     if (player.GetName() == name)
                     {
-                        _players.Remove(player);
+                        this._players.Remove(player);
 
                         return $"Player \"{name}\" removed!";
                     }
@@ -129,11 +127,11 @@ namespace TicTacToe.GameContent.PlayerContent
 
         public void SetCurrentPlayer(string name)
         {
-            for (int i = 0; i < _players.Count; i++)
+            for (int i = 0; i < this._players.Count; i++)
             {
-                if (_players[i].GetName() == name)
+                if (this._players[i].GetName() == name)
                 {
-                    _currentPlayerIndex = i; // Set current player index to the found player's index
+                    this._currentPlayerIndex = i; // Set current player index to the found player's index
                     return;
                 }
             }
@@ -141,30 +139,30 @@ namespace TicTacToe.GameContent.PlayerContent
             throw new InvalidOperationException($"Player \"{name}\" not found.");
         }
 
-        public string GetCurrentPlayerSymbol()
+        public char GetCurrentPlayerSymbol()
         {
-            return _players[_currentPlayerIndex].GetSymbol();
+            return this._players[this._currentPlayerIndex].GetSymbol();
         }
 
         public string GetCurrentPlayerName()
         {
-            return _players[_currentPlayerIndex].GetName();
+            return this._players[this._currentPlayerIndex].GetName();
         }
 
         public void SwitchPlayer()
         {
-            _currentPlayerIndex = (_currentPlayerIndex + 1) % _players.Count; 
+            this._currentPlayerIndex = (this._currentPlayerIndex + 1) % this._players.Count; 
         }
 
         public void Reset()
         {
-            _currentPlayerIndex = 0; 
+            this._currentPlayerIndex = 0; 
         }
 
         public List<PlayerData> GetPlayersData()
         {
             var playerDataList = new List<PlayerData>();
-            foreach (var player in _players)
+            foreach (var player in this._players)
             {
                 playerDataList.Add(player.GetPlayerData());
             }
@@ -174,15 +172,15 @@ namespace TicTacToe.GameContent.PlayerContent
         public void RestorePlayers(List<PlayerData> playersData)            //Fattar verkligen inte syftet med dessa metoderna
         {
             // Clear existing players and restore from the data
-            _players.Clear();
+            this._players.Clear();
             foreach (var data in playersData)
             {
                 var player = new HumanPlayer(data.Name, data.Symbol, data.Color); // Replace with the appropriate color
                 player.UpdateHighscore(data.HighScore);
-                _players.Add(player);
+                this._players.Add(player);
             }
             // Reset the current player index
-            _currentPlayerIndex = 0; // Or set based on saved data if needed
+            this._currentPlayerIndex = 0; // Or set based on saved data if needed
         }
 
 

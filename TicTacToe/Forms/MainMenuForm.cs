@@ -16,7 +16,8 @@ namespace TicTacToe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Handle Start Game button click event
+            GameForm gameForm = new GameForm();
+            gameForm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

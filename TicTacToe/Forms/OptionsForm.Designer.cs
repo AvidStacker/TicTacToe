@@ -58,7 +58,7 @@
             TurnOff_button.TabIndex = 1;
             TurnOff_button.Text = "Turn off music";
             TurnOff_button.UseVisualStyleBackColor = true;
-            TurnOff_button.Click += TurnOff_button_Click;
+            /*TurnOff_button.Click += TurnOff_button_Click;*/
 
             // 
             // Change_button

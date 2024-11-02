@@ -66,7 +66,7 @@ namespace TicTacToe.GameContent
             {
                 this.Draw?.Invoke();
             }
-            else if (this._board.CurrentState == BoardState.XWins || this._board.CurrentState == BoardState.OWins)
+            else if (this._board.GetBoardState() == BoardState.XWins || this._board.GetBoardState() == BoardState.OWins)
             {
                 this.GameWon?.Invoke(this._playerManager.GetCurrentPlayerName());
             }
@@ -74,7 +74,7 @@ namespace TicTacToe.GameContent
 
         public void UpdateBoard(int row, int col)
         {
-            char currentSymbol = this._playerManager.GetCurrentPlayerSymbol()[0];
+            char currentSymbol = this._playerManager.GetCurrentPlayerSymbol();
 
             if (this._board.MakeMove(row, col, currentSymbol))
             {
@@ -96,7 +96,7 @@ namespace TicTacToe.GameContent
 
         // Provide current player's name and symbol for UI
         public string CurrentPlayerName => this._playerManager.GetCurrentPlayerName();
-        public char CurrentPlayerSymbol => this._playerManager.GetCurrentPlayerSymbol()[0];
+        public char CurrentPlayerSymbol => this._playerManager.GetCurrentPlayerSymbol();
 
         // Retrieve the current state of the board
         public char[,] GetBoardState()
