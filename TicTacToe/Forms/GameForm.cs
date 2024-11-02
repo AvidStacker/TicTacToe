@@ -1,90 +1,143 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TicTacToe.Core.Game;
+using TicTacToe.GameContent
 
-namespace TicTacToe
+namespace TicTacToe.Forms
 {
     public partial class GameForm : Form
     {
-        private IGame game; // refrence to IGame interface
-        private Button[,] button;   // rebresents the game board
+        private Game _game;
+        private Button[,] _boardButtons;
+        private Label playerLabel;
+        private Label messageLabel;
 
-        public GameForm(IGame game)
+        public GameForm()
         {
-            this.game = game;
             InitializeComponent();
-            InitializeBoard(); // Set up the board UI
+            _game = new Game();
+
+            // Set up event handlers for the Game class
+            _game.TurnChanged += OnTurnChanged;
+            _game.GameWon += OnGameWon;
+            _game.IllegalMove += OnIllegalMove;
+            _game.Draw += OnDraw;
+            _game.GameReset += OnGameReset;
+
+            InitializeBoard();
+            UpdatePlayerDisplay();
         }
 
-        private void InitializeComponent()
-        {
-            this.Text = "Game Form";
-            this.Size = new System.Drawing.Size(400, 400);
-        }
-
-        // Sets up the board UI with the buttons
         private void InitializeBoard()
         {
-            int rows = 3;
-            int cols = 3;
-            buttons = new Button[rows, cols];
-
-            for (int i = 0; i < rows; i++)
+            _boardButtons = new Button[3, 3];
+            for (int row = 0; row < 3; row++)
             {
-                for (int j = 0; j < cols; j++)
+                for (int col = 0; col < 3; col++)
                 {
-                    buttons[i, j] = new Button();
-                    buttons[i, j].Size = new System.Drawing.Size(100, 100);
-                    buttons[i, j].Location = new System.Drawing.Point(i * 100, j * 100);
-                    buttons[i, j].Click += ButtonClicked;  // Links to ButtonClicked event
-                    this.Controls.Add(buttons[i, j]);
+                    var button = new Button
+                    {
+                        Width = 100,
+                        Height = 100,
+                        Location = new System.Drawing.Point(100 * col, 100 * row),
+                        Font = new System.Drawing.Font("Arial", 24, System.Drawing.FontStyle.Bold)
+                    };
+                    button.Click += (sender, args) => OnCellClicked(row, col);
+                    _boardButtons[row, col] = button;
+                    this.Controls.Add(button);
+                }
+            }
+
+            // Add Labels and Buttons
+            playerLabel = new Label { Text = "Player's turn: ", Location = new System.Drawing.Point(10, 320), AutoSize = true };
+            messageLabel = new Label { Text = "Game status", Location = new System.Drawing.Point(10, 350), AutoSize = true };
+
+            var saveButton = new Button { Text = "Save", Location = new System.Drawing.Point(250, 320) };
+            saveButton.Click += (sender, args) => _game.SaveGame("gameState.json");
+
+            var loadButton = new Button { Text = "Load", Location = new System.Drawing.Point(320, 320) };
+            loadButton.Click += (sender, args) => _game.LoadGame("gameState.json");
+
+            var resetButton = new Button { Text = "Reset", Location = new System.Drawing.Point(390, 320) };
+            resetButton.Click += (sender, args) => ResetGame();
+
+            this.Controls.Add(playerLabel);
+            this.Controls.Add(messageLabel);
+            this.Controls.Add(saveButton);
+            this.Controls.Add(loadButton);
+            this.Controls.Add(resetButton);
+        }
+
+        private void OnCellClicked(int row, int col)
+        {
+            _game.UpdateBoard(row, col);
+            UpdateBoardUI();
+        }
+
+        private void UpdateBoardUI()
+        {
+            char[,] boardData = _game.GetBoardState(); // Get the current board state
+
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 3; col++)
+                {
+                    _boardButtons[row, col].Text = boardData[row, col].ToString();
+                    _boardButtons[row, col].Enabled = boardData[row, col] == '\0'; // Enable button only if cell is empty
                 }
             }
         }
 
-        // Handel the button clicks on the board
-        private void ButtonClicked(object sender, EventArgs e)
+        private void UpdatePlayerDisplay()
         {
-            Button button = sender as Button;
-            int row = button.Location.Y / 100;
-            int col = button.Location.X / 100;
-
-            if (game.MakeMove(row, col))
-            {
-                button.Text = game.GetGameState(); // Update button text with current player's symbol
-                button.Enabled = false;
-
-                if (game.IsGameOver())
-                {
-                    MessageBox.Show("Game Over! " + game.GetGameState());
-                    ResetBoard();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Invalid move. Try again.");
-            }
+            playerLabel.Text = $"Player's turn: {_game.CurrentPlayerName}";
         }
 
-        // Resets the board for a new game
-        private void ResetBoard()
+        private void OnTurnChanged(string playerName)
         {
-            foreach (Button button in buttons)
-            {
-                button.Text = string.Empty;
-                button.Enabled = true;
-            }
-            game.StartGame();  // Restarting the game through IGame interface
+            UpdatePlayerDisplay(); // Update player display when turn changes
         }
 
+        private void OnGameWon(string playerName)
+        {
+            messageLabel.Text = $"Game won by {playerName}!";
+            DisableBoard(); // Disable buttons to prevent further moves
+        }
 
+        private void OnIllegalMove(string message)
+        {
+            messageLabel.Text = message; // Display the illegal move message
+        }
+
+        private void OnDraw()
+        {
+            messageLabel.Text = "It's a draw!";
+            DisableBoard();
+        }
+
+        private void OnGameReset()
+        {
+            messageLabel.Text = "Game reset!"; // Notify that the game has been reset
+            UpdateBoardUI(); // Clear board UI
+            EnableBoard(); // Re-enable board buttons
+        }
+
+        private void ResetGame()
+        {
+            _game.ResetGame(); // Reset the game state
+            UpdateBoardUI(); // Update the board display
+            EnableBoard(); // Ensure the board is enabled for a new game
+        }
+
+        private void DisableBoard()
+        {
+            foreach (var button in _boardButtons)
+                button.Enabled = false; // Disable all buttons
+        }
+
+        private void EnableBoard()
+        {
+            foreach (var button in _boardButtons)
+                button.Enabled = true; // Enable all buttons
+        }
     }
-
 }

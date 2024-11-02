@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToe.Game.Player
+namespace TicTacToe.GameContent.PlayerContent
 {
     public class PlayerData
     {

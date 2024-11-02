@@ -6,9 +6,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using TicTacToe.Game.Player;
+using TicTacToe.GameContent.PlayerContent;
 
-namespace TicTacToe.Core.Game.Player
+namespace TicTacToe.GameContent.PlayerContent
 {
     internal class PlayerManager
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace TicTacToe.Game.Board
+namespace TicTacToe.GameContent.BoardContent
 {
     public class BoardStateData
     {

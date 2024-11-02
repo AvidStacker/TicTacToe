@@ -1,12 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Text.Json;
-using TicTacToe.Core.Game.Player;
-using TicTacToe.Core.Game;
-using TicTacToe.Game.Board;
-using TicTacToe.Game;
+using TicTacToe.GameContent.PlayerContent;
+using TicTacToe.GameContent.BoardContent;
+using TicTacToe.GameContent;
 
-namespace TicTacToe.Core.Game
+namespace TicTacToe.GameContent
 {
     public class Game : IGame
     {

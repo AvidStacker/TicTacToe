@@ -1,6 +1,6 @@
-﻿using TicTacToe.Game.Board;
+﻿using TicTacToe.GameContent.BoardContent;
 
-namespace TicTacToe.Core.Game
+namespace TicTacToe.GameContent
 {
     public interface IGame
     {

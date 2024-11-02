@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToe.Game.Board
+namespace TicTacToe.GameContent.BoardContent
 {
     public enum BoardState
     {

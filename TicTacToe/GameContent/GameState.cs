@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TicTacToe.Game.Board;
-using TicTacToe.Game.Player;
+using TicTacToe.GameContent.BoardContent;
+using TicTacToe.GameContent.PlayerContent;
 
-namespace TicTacToe.Game
+namespace TicTacToe.GameContent
 {
     public class GameState
     {

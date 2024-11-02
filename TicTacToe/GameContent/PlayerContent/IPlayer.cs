@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TicTacToe.Game.Player;
+using TicTacToe.GameContent.PlayerContent;
 
-namespace TicTacToe.Core.Game.Player
+namespace TicTacToe.GameContent.PlayerContent
 {
     public interface IPlayer
     {
