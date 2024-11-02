@@ -14,7 +14,7 @@ namespace TicTacToe.GameContent.PlayerContent
     {
         private int _currentPlayerIndex;
         private Random _random;
-        private readonly string _jsonFilepath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory)?.Parent?.Parent?.FullName ?? string.Empty,"PlayerManager.json"); 
+        private readonly string _jsonFilepath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory)?.Parent?.Parent?.FullName ?? string.Empty,"GameContent\\PlayerContent\\PlayerSettings.json"); 
         //Relativ sökväg till PlayerSettings.json (tror jag, inte testat om den fungerar). Har försökt undvika ett eventuellt null värde, därav conditional alla conditional opperators. 
 
         //Skapa ett event som kan notifiera andra klasser vid uppdatering av players?
@@ -24,8 +24,6 @@ namespace TicTacToe.GameContent.PlayerContent
         public PlayerManager()
         {
             this._players = LoadPlayers(); //Laddar in spelare direkt när ett PlayerManager objekt skapas för att inte råka skriva över de existerande spelarna
-            this.UpdatePlayerHighscore(0, "Player 1");
-            this.UpdatePlayerHighscore(0, "Player 2");
         }
 
         private void OnPlayerSettingsUpdated(string symbol, Color color)
@@ -84,6 +82,7 @@ namespace TicTacToe.GameContent.PlayerContent
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                return new List<IPlayer>();
             }
 
             return this._players; //Returnerar alla spelare som en lista
