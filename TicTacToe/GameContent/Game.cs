@@ -51,7 +51,7 @@ namespace TicTacToe.GameContent
                 this._board.LoadState(gameState.BoardStateData);
                 this._playerManager.SetCurrentPlayer(gameState.CurrentPlayerName);
 
-                this.CheckGameState(); // Update GameForm based on loaded state
+                this.OnBoardStateChanged(this, this._board.GetBoardState()); // Update GameForm based on loaded state
             }
         }
 
@@ -79,6 +79,7 @@ namespace TicTacToe.GameContent
             if (this._board.MakeMove(row, col, currentSymbol))
             {
                 this.TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
+                this.OnBoardStateChanged(this, this._board.GetBoardState());
                 this._playerManager.SwitchPlayer();
             }
             else

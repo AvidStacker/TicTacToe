@@ -46,7 +46,6 @@ namespace TicTacToe.Forms
         private void OnCellClicked(int row, int col)
         {
             _game.UpdateBoard(row, col);
-            UpdateBoardUI();
         }
 
         private void UpdateBoardUI()
@@ -58,7 +57,7 @@ namespace TicTacToe.Forms
                 for (int col = 0; col < 3; col++)
                 {
                     _boardButtons[row, col].Text = boardData[row, col].ToString();
-                    _boardButtons[row, col].Enabled = boardData[row, col] == '\0'; // Enable button only if cell is empty
+                    _boardButtons[row, col].Enabled = boardData[row, col] == ' '; // Enable button only if cell is blank
                 }
             }
         }
@@ -71,6 +70,7 @@ namespace TicTacToe.Forms
         private void OnTurnChanged(string playerName)
         {
             UpdatePlayerDisplay(); // Update player display when turn changes
+            UpdateBoardUI();
         }
 
         private void OnGameWon(string playerName)

@@ -52,13 +52,13 @@ namespace TicTacToe.GameContent.BoardContent
         // Loads the board state from a provided BoardStateData object
         public void LoadState(BoardStateData boardStateData)
         {
-            // Ensure that the CurrentState is set from the BoardStateData
             this.CurrentState = boardStateData.CurrentState; // This should work if BoardStateData.CurrentState is of type BoardState
+            char[,] gridFromState = boardStateData.To2DArray(); // Convert 1D array to 2D
             for (int i = 0; i < this.size; i++)
             {
                 for (int j = 0; j < this.size; j++)
                 {
-                    this.grid[i, j] = boardStateData.Grid[i, j]; // Restore grid state
+                    this.grid[i, j] = gridFromState[i, j]; // Restore grid state
                 }
             }
             this.OnStateChanged(this.CurrentState); // Notify observers of state change
@@ -146,7 +146,8 @@ namespace TicTacToe.GameContent.BoardContent
         // Public method to get the current state of the board as a string
         public BoardStateData GetBoardStateData()
         {
-            return new BoardStateData(this.GetCurrentGrid(), this.GetBoardState());
+            char[] flatGrid = BoardStateData.From2DArray(this.GetCurrentGrid()); // Convert to 1D array
+            return new BoardStateData(flatGrid, this.GetBoardState()); // Return new BoardStateData
         }
     }
 }
