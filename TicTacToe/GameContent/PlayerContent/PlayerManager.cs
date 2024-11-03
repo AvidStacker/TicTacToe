@@ -167,7 +167,7 @@ namespace TicTacToe.GameContent.PlayerContent
 
         public char GetCurrentPlayerSymbol()
         {
-            return this._players[this._currentPlayerIndex].GetSymbol();
+            return Convert.ToChar(this._players[this._currentPlayerIndex].GetSymbol());
         }
 
         public string GetCurrentPlayerName()
@@ -208,9 +208,5 @@ namespace TicTacToe.GameContent.PlayerContent
             // Reset the current player index
             this._currentPlayerIndex = 0; // Or set based on saved data if needed
         }
-
-
-
-
     }
 }

@@ -31,7 +31,9 @@ namespace TicTacToe.Forms
             {
                 for (int col = 0; col < 3; col++)
                 {
-                    _boardButtons[row, col].Click += (sender, args) => OnCellClicked(row, col);
+                    int r = row; // Capture the current value of row
+                    int c = col; // Capture the current value of col
+                    _boardButtons[r, c].Click += (sender, args) => OnCellClicked(r, c);
                 }
             }
 
