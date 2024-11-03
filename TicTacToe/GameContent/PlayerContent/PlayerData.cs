@@ -11,7 +11,6 @@ namespace TicTacToe.GameContent.PlayerContent
         public required string Name { get; set; }
         public char Symbol { get; set; }
         public int HighScore { get; set; }
-
-        public Color Color { get; set; }
+        public (int R, int G, int B) Color { get; set; }
     }
 }

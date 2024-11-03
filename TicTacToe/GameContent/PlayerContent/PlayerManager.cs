@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -71,13 +72,53 @@ namespace TicTacToe.GameContent.PlayerContent
             return 0; //Default-return om spelaren inte finns 
         }
 
-        public List<IPlayer> LoadPlayers() //Se till att denna metoden körs innan en ny spelare skapas
+        public void SavePlayers()
         {
             try
             {
-                string existingPLayers = File.ReadAllText(this._jsonFilepath); //Läser in all text från JSON-filen till en sträng
-                this._players = JsonSerializer.Deserialize<List<IPlayer>>(existingPLayers) ?? new List<IPlayer>(); //Deserialiserar alla existerande spleare och lägger till dom i spelarlistan
-                                                                                                             //Skapar en ny tom lista om strängen = null för att undvika eventuella fel
+                // Convert each Player object in _players to a PlayerData object
+                List<PlayerData> playersData = this._players.Select(p => new PlayerData
+                    {
+                        Name = p.GetName(),
+                        HighScore = p.GetHighscore(),
+                        Symbol = p.GetSymbol(),
+                        Color = (p.GetColor().R, p.GetColor().G, p.GetColor().B) // Assuming GetColor() returns a Color object
+                    })
+                    .ToList();
+
+                // Serialize the list of PlayerData objects to JSON
+                string jsonPlayers = JsonSerializer.Serialize(playersData);
+                File.WriteAllText(this._jsonFilepath, jsonPlayers); // Save JSON to file
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        // LoadPlayers method
+        public List<IPlayer> LoadPlayers()
+        {
+            try
+            {
+                // Read the JSON data from file
+                string existingPlayers = File.ReadAllText(this._jsonFilepath);
+
+                // Deserialize the JSON to a list of PlayerData objects
+                List<PlayerData> playersData = JsonSerializer.Deserialize<List<PlayerData>>(existingPlayers) ?? new List<PlayerData>();
+
+                // Rebuild the _players list from the deserialized PlayerData objects
+                this._players = new List<IPlayer>();
+                foreach (var data in playersData)
+                {
+                    var player = new HumanPlayer(
+                        data.Name,
+                        data.Symbol,
+                        Color.FromArgb(data.Color.R, data.Color.G, data.Color.B)
+                    );
+                    player.UpdateHighscore(data.HighScore);
+                    this._players.Add(player);
+                }
             }
             catch (Exception ex)
             {
@@ -85,21 +126,7 @@ namespace TicTacToe.GameContent.PlayerContent
                 return new List<IPlayer>();
             }
 
-            return this._players; //Returnerar alla spelare som en lista
-        }
-
-        public void SavePlayers() //Kör denna metoden innan spelet stänger ner
-        {
-            try
-            {
-                string jsonPlayers = JsonSerializer.Serialize(this._players); //Seraliserar alla spelare i den nya uppdaterade listan och sparar dom till en JSON-fil
-                File.WriteAllText(this._jsonFilepath, jsonPlayers);
-            }
-            catch (Exception ex) 
-            { 
-                Console.WriteLine(ex.ToString()); 
-            }
-            
+            return this._players;
         }
 
         public string RemovePlayer(string name)
@@ -174,7 +201,7 @@ namespace TicTacToe.GameContent.PlayerContent
             this._players.Clear();
             foreach (var data in playersData)
             {
-                var player = new HumanPlayer(data.Name, data.Symbol, data.Color); // Replace with the appropriate color
+                var player = new HumanPlayer(data.Name, data.Symbol, Color.FromArgb(data.Color.R, data.Color.G, data.Color.B)); // Replace with the appropriate color
                 player.UpdateHighscore(data.HighScore);
                 this._players.Add(player);
             }
