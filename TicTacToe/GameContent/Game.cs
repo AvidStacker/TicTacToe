@@ -51,7 +51,11 @@ namespace TicTacToe.GameContent
                 this._board.LoadState(gameState.BoardStateData);
                 this._playerManager.SetCurrentPlayer(gameState.CurrentPlayerName);
 
-                this.OnBoardStateChanged(this, this._board.GetBoardState()); // Update GameForm based on loaded state
+                // Update GameForm based on the loaded state
+                this.OnBoardStateChanged(this, this._board.GetBoardState());
+
+                // Trigger events to refresh the UI
+                TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
             }
         }
 
