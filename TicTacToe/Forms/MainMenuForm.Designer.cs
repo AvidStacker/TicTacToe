@@ -2,15 +2,8 @@
 {
     partial class MainMenuForm
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,79 +15,75 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            Titel_Main = new Label();
-            StartGame_Click = new Button();
-            Option_Click = new Button();
-            Exit_Click = new Button();
-            SuspendLayout();
+            this.Titel_Main = new System.Windows.Forms.Label();
+            this.StartGame_Click = new System.Windows.Forms.Button();
+            this.Option_Click = new System.Windows.Forms.Button();
+            this.Exit_Click = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
             // Titel_Main
             // 
-            Titel_Main.AutoSize = true;
-            Titel_Main.Font = new Font("Segoe UI Black", 36F, FontStyle.Bold);
-            Titel_Main.ForeColor = SystemColors.ButtonHighlight;
-            Titel_Main.Location = new Point(238, 41);
-            Titel_Main.Name = "Titel_Main";
-            Titel_Main.Size = new Size(294, 65);
-            Titel_Main.TabIndex = 0;
-            Titel_Main.Text = "Tic Tac Toe";
-            Titel_Main.Click += label1_Click;
+            this.Titel_Main.AutoSize = true;
+            this.Titel_Main.Font = new System.Drawing.Font("Segoe UI Black", 36F, System.Drawing.FontStyle.Bold);
+            this.Titel_Main.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Titel_Main.Location = new System.Drawing.Point(238, 41);
+            this.Titel_Main.Name = "Titel_Main";
+            this.Titel_Main.Size = new System.Drawing.Size(294, 65);
+            this.Titel_Main.TabIndex = 0;
+            this.Titel_Main.Text = "Tic Tac Toe";
+            this.Titel_Main.Click += new System.EventHandler(this.label1_Click);
             // 
             // StartGame_Click
             // 
-            StartGame_Click.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Italic);
-            StartGame_Click.Location = new Point(260, 158);
-            StartGame_Click.Name = "StartGame_Click";
-            StartGame_Click.Size = new Size(243, 59);
-            StartGame_Click.TabIndex = 1;
-            StartGame_Click.Text = "Start Game";
-            StartGame_Click.UseVisualStyleBackColor = true;
-            StartGame_Click.Click += button1_Click;
+            this.StartGame_Click.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic);
+            this.StartGame_Click.Location = new System.Drawing.Point(260, 158);
+            this.StartGame_Click.Name = "StartGame_Click";
+            this.StartGame_Click.Size = new System.Drawing.Size(243, 59);
+            this.StartGame_Click.TabIndex = 1;
+            this.StartGame_Click.Text = "Start Game";
+            this.StartGame_Click.UseVisualStyleBackColor = true;
+            this.StartGame_Click.Click += new System.EventHandler(this.button1_Click);
             // 
             // Option_Click
             // 
-            Option_Click.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Italic);
-            Option_Click.Location = new Point(260, 269);
-            Option_Click.Name = "Option_Click";
-            Option_Click.Size = new Size(243, 57);
-            Option_Click.TabIndex = 2;
-            Option_Click.Text = "Options";
-            Option_Click.UseVisualStyleBackColor = true;
-            Option_Click.Click += button2_Click;
+            this.Option_Click.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic);
+            this.Option_Click.Location = new System.Drawing.Point(260, 269);
+            this.Option_Click.Name = "Option_Click";
+            this.Option_Click.Size = new System.Drawing.Size(243, 57);
+            this.Option_Click.TabIndex = 2;
+            this.Option_Click.Text = "Options";
+            this.Option_Click.UseVisualStyleBackColor = true;
+            this.Option_Click.Click += new System.EventHandler(this.button2_Click);
             // 
             // Exit_Click
             // 
-            Exit_Click.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Italic);
-            Exit_Click.Location = new Point(260, 394);
-            Exit_Click.Name = "Exit_Click";
-            Exit_Click.Size = new Size(243, 54);
-            Exit_Click.TabIndex = 3;
-            Exit_Click.Text = "Exit";
-            Exit_Click.UseVisualStyleBackColor = true;
-            Exit_Click.Click += button3_Click;
+            this.Exit_Click.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic);
+            this.Exit_Click.Location = new System.Drawing.Point(260, 394);
+            this.Exit_Click.Name = "Exit_Click";
+            this.Exit_Click.Size = new System.Drawing.Size(243, 54);
+            this.Exit_Click.TabIndex = 3;
+            this.Exit_Click.Text = "Exit";
+            this.Exit_Click.UseVisualStyleBackColor = true;
+            this.Exit_Click.Click += new System.EventHandler(this.button3_Click);
             // 
             // MainMenuForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightSeaGreen;
-            ClientSize = new Size(831, 580);
-            Controls.Add(Exit_Click);
-            Controls.Add(Option_Click);
-            Controls.Add(StartGame_Click);
-            Controls.Add(Titel_Main);
-            Name = "MainMenuForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Tic Tac Toe - Main Menu";
-            Load += MainMenuForm_Load;
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.ClientSize = new System.Drawing.Size(831, 580);
+            this.Controls.Add(this.Exit_Click);
+            this.Controls.Add(this.Option_Click);
+            this.Controls.Add(this.StartGame_Click);
+            this.Controls.Add(this.Titel_Main);
+            this.Name = "MainMenuForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tic Tac Toe - Main Menu";
+            this.Load += new System.EventHandler(this.MainMenuForm_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion

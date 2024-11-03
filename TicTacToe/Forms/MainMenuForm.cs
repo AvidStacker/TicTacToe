@@ -17,14 +17,17 @@ namespace TicTacToe
         private void button1_Click(object sender, EventArgs e)
         {
             GameForm gameForm = new GameForm();
+            gameForm.FormClosed += (s, args) => this.Show(); // Show MainMenuForm when GameForm is closed
             gameForm.Show();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Open OptionsForm when the Options button is clicked
             OptionsForm optionsForm = new OptionsForm();
+            optionsForm.FormClosed += (s, args) => this.Show(); // Show MainMenuForm when OptionsForm is closed
             optionsForm.Show();
+            this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -38,4 +41,4 @@ namespace TicTacToe
             // Handle form load event
         }
     }
-}//teste
+}
