@@ -10,6 +10,7 @@ namespace TicTacToe.Forms
         // Declare UI components
         private System.Windows.Forms.Label playerLabel;
         private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.Button newGameButton; // New Game button
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.Button resetButton;
@@ -43,13 +44,25 @@ namespace TicTacToe.Forms
                 Text = "Game status"
             };
 
+            // New Game Button
+            this.newGameButton = new System.Windows.Forms.Button
+            {
+                Location = new System.Drawing.Point(170, 20), // Position to the left of Save Button
+                Name = "newGameButton",
+                Size = new System.Drawing.Size(75, 30),
+                TabIndex = 2,
+                Text = "New Game",
+                UseVisualStyleBackColor = true
+            };
+            this.newGameButton.Click += new EventHandler(this.NewGameButton_Click);
+
             // Save Button
             this.saveButton = new System.Windows.Forms.Button
             {
                 Location = new System.Drawing.Point(250, 20),
                 Name = "saveButton",
                 Size = new System.Drawing.Size(75, 30),
-                TabIndex = 2,
+                TabIndex = 3,
                 Text = "Save",
                 UseVisualStyleBackColor = true
             };
@@ -60,7 +73,7 @@ namespace TicTacToe.Forms
                 Location = new System.Drawing.Point(330, 20),
                 Name = "loadButton",
                 Size = new System.Drawing.Size(75, 30),
-                TabIndex = 3,
+                TabIndex = 4,
                 Text = "Load",
                 UseVisualStyleBackColor = true
             };
@@ -71,7 +84,7 @@ namespace TicTacToe.Forms
                 Location = new System.Drawing.Point(410, 20),
                 Name = "resetButton",
                 Size = new System.Drawing.Size(75, 30),
-                TabIndex = 4,
+                TabIndex = 5,
                 Text = "Reset",
                 UseVisualStyleBackColor = true
             };
@@ -88,7 +101,7 @@ namespace TicTacToe.Forms
                         Height = 100,
                         Location = new System.Drawing.Point(100 * col + 10, 100 * row + 80),
                         Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold),
-                        TabIndex = 5 + (row * 3 + col),
+                        TabIndex = 6 + (row * 3 + col),
                         UseVisualStyleBackColor = true
                     };
                     this.Controls.Add(this._boardButtons[row, col]); // Add button to the form
@@ -98,9 +111,17 @@ namespace TicTacToe.Forms
             // Add all controls to the form
             this.Controls.Add(this.playerLabel);
             this.Controls.Add(this.messageLabel);
+            this.Controls.Add(this.newGameButton); // Add New Game Button to the form
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.loadButton);
             this.Controls.Add(this.resetButton);
+        }
+
+        // Event handler for New Game button click
+        private void NewGameButton_Click(object sender, EventArgs e)
+        {
+            // Logic to start a new game, such as calling StartNewGame method from the Game class
+            // Example: game.StartNewGame("Player 1", "Player 2");
         }
 
         // Cleanup method for disposing resources

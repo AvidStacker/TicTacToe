@@ -3,24 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\.vs\\TicTacToe\\v17\\DocumentLayout.backup.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.vs\\TicTacToe\\v17\\DocumentLayout.backup.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\playercontent\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\playercontent\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\forms\\mainmenuform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:forms\\mainmenuform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\forms\\gameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:forms\\gameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\igame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\igame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\playercontent\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\playercontent\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\forms\\gameform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:forms\\gameform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\boardcontent\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\boardcontent\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\boardcontent\\boardstatedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\boardcontent\\boardstatedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\boardcontent\\boardstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\boardcontent\\boardstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\playercontent\\iplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\playercontent\\iplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\.vs\\TicTacToe\\v17\\DocumentLayout.backup.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.vs\\TicTacToe\\v17\\DocumentLayout.backup.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\playercontent\\humanplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,28 +59,8 @@
       "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\playercontent\\playersettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\playercontent\\iplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\playercontent\\iplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\forms\\gameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:forms\\gameform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\playercontent\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\playercontent\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\boardcontent\\boardstatedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\boardcontent\\boardstatedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\boardcontent\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\boardcontent\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\gamecontent\\boardcontent\\boardstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|solutionrelative:gamecontent\\boardcontent\\boardstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{26FC3C03-92E1-4728-B47A-3D69D9770EC3}|TicTacToe.csproj|c:\\users\\isak lagerberg\\documents\\github\\tictactoe\\tictactoe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -66,24 +74,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DocumentLayout.backup.json",
-              "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\.vs\\TicTacToe\\v17\\DocumentLayout.backup.json",
-              "RelativeDocumentMoniker": ".vs\\TicTacToe\\v17\\DocumentLayout.backup.json",
-              "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\.vs\\TicTacToe\\v17\\DocumentLayout.backup.json",
-              "RelativeToolTip": ".vs\\TicTacToe\\v17\\DocumentLayout.backup.json",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAuwFgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-03T14:54:08.88Z",
+              "DocumentIndex": 6,
+              "Title": "GameForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\Forms\\GameForm.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\GameForm.Designer.cs",
+              "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\Forms\\GameForm.Designer.cs",
+              "RelativeToolTip": "Forms\\GameForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T17:38:05.77Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "IGame.cs",
+              "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\IGame.cs",
+              "RelativeDocumentMoniker": "GameContent\\IGame.cs",
+              "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\IGame.cs",
+              "RelativeToolTip": "GameContent\\IGame.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-03T17:32:50.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "GameState.cs",
               "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\GameState.cs",
               "RelativeDocumentMoniker": "GameContent\\GameState.cs",
@@ -91,29 +112,44 @@
               "RelativeToolTip": "GameContent\\GameState.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T11:51:46.418Z"
+              "WhenOpened": "2024-11-03T11:51:46.418Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "GameForm.cs",
               "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\Forms\\GameForm.cs",
               "RelativeDocumentMoniker": "Forms\\GameForm.cs",
               "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\Forms\\GameForm.cs",
               "RelativeToolTip": "Forms\\GameForm.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAcwDIAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAkwGUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T11:26:54.124Z"
+              "WhenOpened": "2024-11-03T11:26:54.124Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "PlayerManager.cs",
+              "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\PlayerContent\\PlayerManager.cs",
+              "RelativeDocumentMoniker": "GameContent\\PlayerContent\\PlayerManager.cs",
+              "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\PlayerContent\\PlayerManager.cs",
+              "RelativeToolTip": "GameContent\\PlayerContent\\PlayerManager.cs",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAWwJIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T13:08:15.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\Game.cs",
               "RelativeDocumentMoniker": "GameContent\\Game.cs",
               "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\Game.cs",
               "RelativeToolTip": "GameContent\\Game.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwDwAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAQwBwAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T10:11:06.974Z",
               "EditorCaption": ""
@@ -126,26 +162,14 @@
               "RelativeDocumentMoniker": "Forms\\MainMenuForm.Designer.cs",
               "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\Forms\\MainMenuForm.Designer.cs",
               "RelativeToolTip": "Forms\\MainMenuForm.Designer.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-03T10:12:45.7Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PlayerManager.cs",
-              "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\PlayerContent\\PlayerManager.cs",
-              "RelativeDocumentMoniker": "GameContent\\PlayerContent\\PlayerManager.cs",
-              "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\PlayerContent\\PlayerManager.cs",
-              "RelativeToolTip": "GameContent\\PlayerContent\\PlayerManager.cs",
-              "ViewState": "AgIAAMIAAAAAAAAAAAASwNEAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T13:08:15.638Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "BoardStateData.cs",
               "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\BoardContent\\BoardStateData.cs",
               "RelativeDocumentMoniker": "GameContent\\BoardContent\\BoardStateData.cs",
@@ -153,11 +177,12 @@
               "RelativeToolTip": "GameContent\\BoardContent\\BoardStateData.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAArwCAAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T13:58:12.692Z"
+              "WhenOpened": "2024-11-02T13:58:12.692Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 9,
               "Title": "BoardState.cs",
               "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\BoardContent\\BoardState.cs",
               "RelativeDocumentMoniker": "GameContent\\BoardContent\\BoardState.cs",
@@ -165,35 +190,38 @@
               "RelativeToolTip": "GameContent\\BoardContent\\BoardState.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T13:58:06.667Z"
+              "WhenOpened": "2024-11-02T13:58:06.667Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 7,
               "Title": "Board.cs",
               "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\BoardContent\\Board.cs",
               "RelativeDocumentMoniker": "GameContent\\BoardContent\\Board.cs",
               "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\BoardContent\\Board.cs",
               "RelativeToolTip": "GameContent\\BoardContent\\Board.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAADgvzcAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAADgvzsAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T13:57:33.717Z"
+              "WhenOpened": "2024-11-02T13:57:33.717Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "PlayerData.cs",
               "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\PlayerContent\\PlayerData.cs",
               "RelativeDocumentMoniker": "GameContent\\PlayerContent\\PlayerData.cs",
               "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\PlayerContent\\PlayerData.cs",
               "RelativeToolTip": "GameContent\\PlayerContent\\PlayerData.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAIBJwAwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T13:10:10.875Z"
+              "WhenOpened": "2024-11-02T13:10:10.875Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "HumanPlayer.cs",
               "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\PlayerContent\\HumanPlayer.cs",
               "RelativeDocumentMoniker": "GameContent\\PlayerContent\\HumanPlayer.cs",
@@ -201,11 +229,12 @@
               "RelativeToolTip": "GameContent\\PlayerContent\\HumanPlayer.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAArwC4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T13:08:55.701Z"
+              "WhenOpened": "2024-11-02T13:08:55.701Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -213,11 +242,12 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T10:37:01.4Z"
+              "WhenOpened": "2024-11-03T10:37:01.4Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "PlayerSettings.json",
               "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\PlayerContent\\PlayerSettings.json",
               "RelativeDocumentMoniker": "GameContent\\PlayerContent\\PlayerSettings.json",
@@ -225,11 +255,12 @@
               "RelativeToolTip": "GameContent\\PlayerContent\\PlayerSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-03T10:45:47.484Z"
+              "WhenOpened": "2024-11-03T10:45:47.484Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "IPlayer.cs",
               "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\GameContent\\PlayerContent\\IPlayer.cs",
               "RelativeDocumentMoniker": "GameContent\\PlayerContent\\IPlayer.cs",
@@ -237,7 +268,21 @@
               "RelativeToolTip": "GameContent\\PlayerContent\\IPlayer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T13:08:53.487Z"
+              "WhenOpened": "2024-11-02T13:08:53.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DocumentLayout.backup.json",
+              "DocumentMoniker": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\.vs\\TicTacToe\\v17\\DocumentLayout.backup.json",
+              "RelativeDocumentMoniker": ".vs\\TicTacToe\\v17\\DocumentLayout.backup.json",
+              "ToolTip": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\.vs\\TicTacToe\\v17\\DocumentLayout.backup.json",
+              "RelativeToolTip": ".vs\\TicTacToe\\v17\\DocumentLayout.backup.json",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAuwH8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-03T14:54:08.88Z",
+              "EditorCaption": ""
             }
           ]
         }

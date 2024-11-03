@@ -37,10 +37,11 @@ namespace TicTacToe.Forms
                 }
             }
 
-            // Attach events to Save, Load, Reset buttons
+            // Attach events to Save, Load, Reset, and New Game buttons
             saveButton.Click += (sender, args) => _game.SaveGame("gameState.json");
             loadButton.Click += (sender, args) => _game.LoadGame("gameState.json");
             resetButton.Click += (sender, args) => ResetGame();
+            newGameButton.Click += (sender, args) => StartNewGame(); // New Game button event
         }
 
         private void OnCellClicked(int row, int col)
@@ -99,9 +100,18 @@ namespace TicTacToe.Forms
 
         private void ResetGame()
         {
-            _game.ResetGame(); // Reset the game state
+            _game.StartNewGame(); // Reset the game state
             UpdateBoardUI(); // Update the board display
             EnableBoard(); // Ensure the board is enabled for a new game
+        }
+
+        private void StartNewGame()
+        {
+            _game.ResetGame(); // Reset the game state for a fresh start
+            messageLabel.Text = "Starting a new game!"; // Update message label
+            UpdateBoardUI(); // Clear the board UI
+            EnableBoard(); // Enable board buttons
+            UpdatePlayerDisplay(); // Show the initial player's turn
         }
 
         private void DisableBoard()

@@ -33,20 +33,6 @@ namespace TicTacToe.GameContent.PlayerContent
             //Implementeras vid senare tillfälle
         }
 
-        public void InitializePlayers(string name, char symbol, Color color) //  !!  Se till att ha laddat in alla spelare innan en ny spleare skapas för att inte skriva över existerande splelare !!
-        {
-            try
-            {
-                IPlayer player = new HumanPlayer(name, symbol, color);  //Skapar ett nytt spelarobjekt och lägger till spelaren i spelarlistan.
-                this._players.Add(player);
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString()); //Retard-catch; Fångar eventuella exceptions
-            }
-        }
-
         public void UpdatePlayerHighscore(int highscore, string name)
         {
             foreach (IPlayer player in this._players)

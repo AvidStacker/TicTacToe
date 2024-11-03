@@ -26,6 +26,17 @@ namespace TicTacToe.GameContent
             this._board.StateChanged += this.OnBoardStateChanged;
         }
 
+        public void StartNewGame()
+        {
+            this._playerManager.Reset();
+
+            this._board.Reset();
+
+            // Trigger event to reset UI and set the turn to the first player
+            GameReset?.Invoke(); // Notify GameForm of reset
+            TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
+        }
+
         public void SaveGame(string filePath)
         {
             var gameState = new GameState
