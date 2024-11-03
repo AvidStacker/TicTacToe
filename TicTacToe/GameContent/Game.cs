@@ -62,7 +62,7 @@ namespace TicTacToe.GameContent
 
         public void CheckGameState()
         {
-            if (this._board.CurrentState == BoardState.Draw)
+            if (this._board.GetBoardState() == BoardState.Draw)
             {
                 this.Draw?.Invoke();
             }
