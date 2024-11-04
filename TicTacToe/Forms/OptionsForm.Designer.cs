@@ -28,15 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            // Initialize components
             Options_Label = new Label();
             TurnOff_button = new Button();
-            Change_button = new Button();
             BackToMain_button = new Button();
-            ResetHighscoreButton = new Button(); // Initialize ResetHighscoreButton here
-            
+            ResetHighscoreButton = new Button();
             SuspendLayout();
-
             // 
             // Options_Label
             // 
@@ -49,21 +45,6 @@
             Options_Label.TabIndex = 0;
             Options_Label.Text = "Options";
             Options_Label.Click += label1_Click;
-
-            //
-            // ResetHighscoreButton
-            //
-            ResetHighscoreButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
-            ResetHighscoreButton.Location = new Point(168, 380); // Adjust location as needed
-            ResetHighscoreButton.Name = "ResetHighscoreButton";
-            ResetHighscoreButton.Size = new Size(136, 39);
-            ResetHighscoreButton.TabIndex = 4;
-            ResetHighscoreButton.Text = "Reset Highscore";
-            ResetHighscoreButton.UseVisualStyleBackColor = true;
-            ResetHighscoreButton.Click += ResetHighScore_Click;
-            // Attach event handler
-            Controls.Add(ResetHighscoreButton); // Add button to the form
-
             // 
             // TurnOff_button
             // 
@@ -74,19 +55,7 @@
             TurnOff_button.TabIndex = 1;
             TurnOff_button.Text = "Turn off music";
             TurnOff_button.UseVisualStyleBackColor = true;
-
-            // 
-            // Change_button
-            // 
-            Change_button.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Change_button.Location = new Point(168, 236);
-            Change_button.Name = "Change_button";
-            Change_button.Size = new Size(136, 39);
-            Change_button.TabIndex = 2;
-            Change_button.Text = "Change theme";
-            Change_button.UseVisualStyleBackColor = true;
-            Change_button.Click += Change_button_Click;
-
+            TurnOff_button.Click += TurnOff_button_Click;
             // 
             // BackToMain_button
             // 
@@ -98,7 +67,17 @@
             BackToMain_button.Text = "Back to Main Menu";
             BackToMain_button.UseVisualStyleBackColor = true;
             BackToMain_button.Click += BackToMain_button_Click;
-
+            // 
+            // ResetHighscoreButton
+            // 
+            ResetHighscoreButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            ResetHighscoreButton.Location = new Point(168, 235);
+            ResetHighscoreButton.Name = "ResetHighscoreButton";
+            ResetHighscoreButton.Size = new Size(136, 39);
+            ResetHighscoreButton.TabIndex = 4;
+            ResetHighscoreButton.Text = "Reset Highscore";
+            ResetHighscoreButton.UseVisualStyleBackColor = true;
+            ResetHighscoreButton.Click += ResetHighScore_Click;
             // 
             // OptionsForm
             // 
@@ -107,10 +86,9 @@
             BackColor = Color.LightSeaGreen;
             ClientSize = new Size(478, 450);
             Controls.Add(BackToMain_button);
-            Controls.Add(Change_button);
             Controls.Add(TurnOff_button);
             Controls.Add(Options_Label);
-            Controls.Add(ResetHighscoreButton); // Ensure ResetHighscoreButton is added to Controls
+            Controls.Add(ResetHighscoreButton);
             Name = "OptionsForm";
             Text = "OptionsForm";
             Load += OptionsForm_Load_1;
@@ -122,7 +100,6 @@
 
         private Label Options_Label;
         private Button TurnOff_button;
-        private Button Change_button;
         private Button BackToMain_button;
         private Button ResetHighscoreButton; // Move the declaration here
     }

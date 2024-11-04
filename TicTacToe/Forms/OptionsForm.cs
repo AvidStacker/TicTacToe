@@ -14,6 +14,8 @@ namespace TicTacToe.Forms
         private void OptionsForm_Load(object sender, EventArgs e)
         {
             // Initialize options components here
+            // Initialize MusicManager with a valid music file path
+            MusicManager.Initialize("C:\\Users\\Eshdi\\Source\\Repos\\TicTacToe911\\TicTacToe\\Resources\\Desktop.mp3");
         }
 
         // Event handler for label click event
@@ -23,7 +25,7 @@ namespace TicTacToe.Forms
         }
 
         // Event handler for turn off music button click event
-        /*private void TurnOff_button_Click(object sender, EventArgs e)
+        private void TurnOff_button_Click(object sender, EventArgs e)
         {
             // Check if music is currently on
             if (MusicManager.IsMusicOn())
@@ -38,20 +40,12 @@ namespace TicTacToe.Forms
                 MusicManager.TurnOnMusic();
                 TurnOff_button.Text = "Turn Off Music";
             }
-        }*/
-
-        // Event handler for change theme button click event
-        private void Change_button_Click(object sender, EventArgs e)
-        {
-            // Handle change theme button click event
         }
 
         private void ResetHighScore_Click(object sender, EventArgs e)
         {
             MessageBox.Show("High scores have been reset!", "Reset High Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-
 
         // Event handler for back to main menu button click event
         private void BackToMain_button_Click(object sender, EventArgs e)

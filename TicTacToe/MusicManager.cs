@@ -1,4 +1,6 @@
-﻿/*using NAudio.Wave;
+﻿using NAudio.Wave;
+using System;
+using System.Windows.Forms;
 
 namespace TicTacToe
 {
@@ -11,10 +13,17 @@ namespace TicTacToe
         // Initializes the music player with the specified music file
         public static void Initialize(string musicFilePath)
         {
-            wavePlayer = new WaveOutEvent(); // Creates a new WaveOutEvent for playback
-            audioFileReader = new AudioFileReader(musicFilePath); // Reads the specified audio file
-            wavePlayer.Init(audioFileReader); // Initializes the player with the audio file
-            wavePlayer.Play(); // Starts playing the music
+            try
+            {
+                wavePlayer = new WaveOutEvent(); // Creates a new WaveOutEvent for playback
+                audioFileReader = new AudioFileReader(musicFilePath); // Reads the specified audio file
+                wavePlayer.Init(audioFileReader); // Initializes the player with the audio file
+                wavePlayer.Play(); // Starts playing the music
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error initializing music: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Stops the music and updates the isMusicOn flag
@@ -38,4 +47,3 @@ namespace TicTacToe
         }
     }
 }
-*/

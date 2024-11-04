@@ -1,3 +1,5 @@
+using System;
+using System.Windows.Forms;
 using TicTacToe.Forms;
 
 namespace TicTacToe
@@ -38,7 +40,8 @@ namespace TicTacToe
 
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
-            // Handle form load event
+            // Initialize MusicManager with a valid music file path
+            MusicManager.Initialize("C:\\Users\\Eshdi\\Source\\Repos\\TicTacToe911\\TicTacToe\\Resources\\Desktop.mp3");
         }
     }
 }
