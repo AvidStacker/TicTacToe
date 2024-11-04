@@ -23,7 +23,7 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -33,6 +33,8 @@
             TurnOff_button = new Button();
             Change_button = new Button();
             BackToMain_button = new Button();
+            ResetHighscoreButton = new Button(); // Initialize ResetHighscoreButton here
+            
             SuspendLayout();
 
             // 
@@ -48,6 +50,20 @@
             Options_Label.Text = "Options";
             Options_Label.Click += label1_Click;
 
+            //
+            // ResetHighscoreButton
+            //
+            ResetHighscoreButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            ResetHighscoreButton.Location = new Point(168, 380); // Adjust location as needed
+            ResetHighscoreButton.Name = "ResetHighscoreButton";
+            ResetHighscoreButton.Size = new Size(136, 39);
+            ResetHighscoreButton.TabIndex = 4;
+            ResetHighscoreButton.Text = "Reset Highscore";
+            ResetHighscoreButton.UseVisualStyleBackColor = true;
+            ResetHighscoreButton.Click += ResetHighScore_Click;
+            // Attach event handler
+            Controls.Add(ResetHighscoreButton); // Add button to the form
+
             // 
             // TurnOff_button
             // 
@@ -58,7 +74,6 @@
             TurnOff_button.TabIndex = 1;
             TurnOff_button.Text = "Turn off music";
             TurnOff_button.UseVisualStyleBackColor = true;
-            /*TurnOff_button.Click += TurnOff_button_Click;*/
 
             // 
             // Change_button
@@ -95,6 +110,7 @@
             Controls.Add(Change_button);
             Controls.Add(TurnOff_button);
             Controls.Add(Options_Label);
+            Controls.Add(ResetHighscoreButton); // Ensure ResetHighscoreButton is added to Controls
             Name = "OptionsForm";
             Text = "OptionsForm";
             Load += OptionsForm_Load_1;
@@ -108,6 +124,6 @@
         private Button TurnOff_button;
         private Button Change_button;
         private Button BackToMain_button;
-
+        private Button ResetHighscoreButton; // Move the declaration here
     }
 }

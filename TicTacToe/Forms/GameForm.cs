@@ -40,7 +40,7 @@ namespace TicTacToe.Forms
             // Attach events to Save, Load, Reset, and New Game buttons
             saveButton.Click += (sender, args) => _game.SaveGame("gameState.json");
             loadButton.Click += (sender, args) => _game.LoadGame("gameState.json");
-            resetButton.Click += (sender, args) => ResetGame();
+            
             newGameButton.Click += (sender, args) => StartNewGame(); // New Game button event
         }
 

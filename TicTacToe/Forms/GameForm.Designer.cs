@@ -78,16 +78,7 @@ namespace TicTacToe.Forms
                 UseVisualStyleBackColor = true
             };
 
-            // Reset Button
-            this.resetButton = new System.Windows.Forms.Button
-            {
-                Location = new System.Drawing.Point(410, 20),
-                Name = "resetButton",
-                Size = new System.Drawing.Size(75, 30),
-                TabIndex = 5,
-                Text = "Reset",
-                UseVisualStyleBackColor = true
-            };
+           
 
             // Initialize Game Board Buttons
             this._boardButtons = new System.Windows.Forms.Button[3, 3];
@@ -114,7 +105,7 @@ namespace TicTacToe.Forms
             this.Controls.Add(this.newGameButton); // Add New Game Button to the form
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.loadButton);
-            this.Controls.Add(this.resetButton);
+            
         }
 
         // Event handler for New Game button click

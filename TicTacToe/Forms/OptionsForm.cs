@@ -46,6 +46,13 @@ namespace TicTacToe.Forms
             // Handle change theme button click event
         }
 
+        private void ResetHighScore_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("High scores have been reset!", "Reset High Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+
         // Event handler for back to main menu button click event
         private void BackToMain_button_Click(object sender, EventArgs e)
         {
