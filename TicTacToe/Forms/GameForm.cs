@@ -19,9 +19,9 @@ namespace TicTacToe.Forms
             this._game.IllegalMove += this.OnIllegalMove;
             this._game.Draw += this.OnDraw;
             this._game.GameReset += this.OnGameReset;
-
             UpdatePlayerDisplay();
             InitializeButtonEvents(); // Initialize button events
+            UpdatePlayerHighscore();
         }
 
         private void InitializeButtonEvents()
@@ -68,6 +68,12 @@ namespace TicTacToe.Forms
             playerLabel.Text = $"Player's turn: {_game.CurrentPlayerName}";
         }
 
+        private void UpdatePlayerHighscore()
+        {
+            highscore.Text = $"Highscore: {_game.Highscore/2}";
+        }
+
+
         private void OnTurnChanged(string playerName)
         {
             UpdatePlayerDisplay(); // Update player display when turn changes
@@ -112,6 +118,7 @@ namespace TicTacToe.Forms
             UpdateBoardUI(); // Clear the board UI
             EnableBoard(); // Enable board buttons
             UpdatePlayerDisplay(); // Show the initial player's turn
+            UpdatePlayerHighscore();
         }
 
         private void DisableBoard()

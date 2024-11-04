@@ -8,6 +8,7 @@ namespace TicTacToe.Forms
         private System.ComponentModel.IContainer components = null;
 
         // Declare UI components
+        private System.Windows.Forms.Label highscore;
         private System.Windows.Forms.Label playerLabel;
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.Button newGameButton; // New Game button
@@ -21,6 +22,17 @@ namespace TicTacToe.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Text = "Tic Tac Toe";
+
+            // Player Highscore
+            this.highscore = new System.Windows.Forms.Label
+            {
+                AutoSize = true,
+                Location = new System.Drawing.Point(10, 20),
+                Name = "highscore",
+                Size = new System.Drawing.Size(130, 20),
+                TabIndex = 0,
+                Text = "Highscore: "
+            };
 
             // Player Label
             this.playerLabel = new System.Windows.Forms.Label
@@ -100,6 +112,7 @@ namespace TicTacToe.Forms
             }
 
             // Add all controls to the form
+            this.Controls.Add(this.highscore);
             this.Controls.Add(this.playerLabel);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.newGameButton); // Add New Game Button to the form

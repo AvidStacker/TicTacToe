@@ -33,13 +33,13 @@ namespace TicTacToe.GameContent.PlayerContent
             //Implementeras vid senare tillfälle
         }
 
-        public void UpdatePlayerHighscore(int highscore, string name)
+        public void UpdatePlayerHighscore(string name)
         {
             foreach (IPlayer player in this._players)
             {
                 if (player.GetName() == name)
                 {
-                    player.UpdateHighscore(highscore);
+                    player.UpdateHighscore(player.GetHighscore() +1);
                 }
             }
         }
@@ -58,19 +58,32 @@ namespace TicTacToe.GameContent.PlayerContent
             return 0; //Default-return om spelaren inte finns 
         }
 
+        public int GetHighestHighscore() //Returns the highest highscore of all players
+        {
+            int highscore = 0;
+            foreach(IPlayer player in _players)
+            {
+                if(player.GetHighscore() > highscore)
+                {
+                    highscore = player.GetHighscore();
+                }
+            }
+
+            return highscore;
+        }
+
         public void SavePlayers()
         {
             try
             {
                 // Convert each Player object in _players to a PlayerData object
                 List<PlayerData> playersData = this._players.Select(p => new PlayerData
-                    {
-                        Name = p.GetName(),
-                        HighScore = p.GetHighscore(),
-                        Symbol = p.GetSymbol(),
-                        Color = (p.GetColor().R, p.GetColor().G, p.GetColor().B) // Assuming GetColor() returns a Color object
-                    })
-                    .ToList();
+                {
+                    Name = p.GetName(),
+                    HighScore = p.GetHighscore(),
+                    Symbol = p.GetSymbol(),
+                    Color = (p.GetColor().R, p.GetColor().G, p.GetColor().B) // Assuming GetColor() returns a Color object
+                }).ToList();
 
                 // Serialize the list of PlayerData objects to JSON
                 string jsonPlayers = JsonSerializer.Serialize(playersData);
