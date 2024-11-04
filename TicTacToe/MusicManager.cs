@@ -29,15 +29,21 @@ namespace TicTacToe
         // Stops the music and updates the isMusicOn flag
         public static void TurnOffMusic()
         {
-            wavePlayer.Stop(); // Stops the music
-            isMusicOn = false; // Updates the flag to indicate music is off
+            if (wavePlayer != null)
+            {
+                wavePlayer.Stop(); // Stops the music
+                isMusicOn = false; // Updates the flag to indicate music is off
+            }
         }
 
         // Starts the music and updates the isMusicOn flag
         public static void TurnOnMusic()
         {
-            wavePlayer.Play(); // Starts playing the music
-            isMusicOn = true; // Updates the flag to indicate music is on
+            if(wavePlayer != null) 
+            {
+                wavePlayer.Play(); // Starts playing the music
+                isMusicOn = true; // Updates the flag to indicate music is on
+            }
         }
 
         // Returns the current state of the music (on or off)

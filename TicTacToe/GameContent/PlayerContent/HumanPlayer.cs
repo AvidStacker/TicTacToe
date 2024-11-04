@@ -61,7 +61,8 @@ namespace TicTacToe.GameContent.PlayerContent
             {
                 Name = this.name,
                 Symbol = this.symbol,
-                HighScore = this.highscore
+                HighScore = this.highscore,
+                Color = (this.color.R, this.color.G, this.color.B)
             };
         }
     }

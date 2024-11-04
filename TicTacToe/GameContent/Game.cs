@@ -30,7 +30,6 @@ namespace TicTacToe.GameContent
 
         public void StartNewGame()
         {
-            this._playerManager.Reset();
             this._board.Reset();
             // Trigger event to reset UI and set the turn to the first player
             GameReset?.Invoke(); // Notify GameForm of reset

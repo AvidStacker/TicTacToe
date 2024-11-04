@@ -64,15 +64,6 @@ namespace TicTacToe.GameContent.BoardContent
             this.OnStateChanged(this.CurrentState); // Notify observers of state change
         }
 
-
-        // Returns a copy of the current grid
-        public char[,] GetCurrentGrid()
-        {
-            char[,] gridCopy = new char[this.size, this.size];
-            Array.Copy(this.grid, gridCopy, this.grid.Length); // Create a copy of the grid
-            return gridCopy;
-        }
-
         // Checks for game status (win, loss, or draw)
         private void SetBoardState(char playerSymbol)
         {
@@ -146,7 +137,7 @@ namespace TicTacToe.GameContent.BoardContent
         // Public method to get the current state of the board as a string
         public BoardStateData GetBoardStateData()
         {
-            char[] flatGrid = BoardStateData.From2DArray(this.GetCurrentGrid()); // Convert to 1D array
+            char[] flatGrid = BoardStateData.From2DArray(this.GetGridState()); // Convert to 1D array
             return new BoardStateData(flatGrid, this.GetBoardState()); // Return new BoardStateData
         }
     }
