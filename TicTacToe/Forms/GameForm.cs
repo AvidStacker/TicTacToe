@@ -104,16 +104,9 @@ namespace TicTacToe.Forms
             EnableBoard(); // Re-enable board buttons
         }
 
-        private void ResetGame()
-        {
-            _game.StartNewGame(); // Reset the game state
-            UpdateBoardUI(); // Update the board display
-            EnableBoard(); // Ensure the board is enabled for a new game
-        }
-
         private void StartNewGame()
         {
-            _game.ResetGame(); // Reset the game state for a fresh start
+            _game.StartNewGame(); // Reset the game state for a fresh start
             messageLabel.Text = "Starting a new game!"; // Update message label
             UpdateBoardUI(); // Clear the board UI
             EnableBoard(); // Enable board buttons

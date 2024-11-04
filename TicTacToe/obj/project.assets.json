@@ -483,23 +483,24 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "Microsoft.Win32.Registry >= 4.7.0",
       "NAudio >= 2.2.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Eshdi\\.nuget\\packages\\": {}
+    "C:\\Users\\Isak Lagerberg\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Eshdi\\Source\\Repos\\TicTacToe911\\TicTacToe\\TicTacToe.csproj",
+      "projectUniqueName": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\TicTacToe.csproj",
       "projectName": "TicTacToe",
-      "projectPath": "C:\\Users\\Eshdi\\Source\\Repos\\TicTacToe911\\TicTacToe\\TicTacToe.csproj",
-      "packagesPath": "C:\\Users\\Eshdi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Eshdi\\Source\\Repos\\TicTacToe911\\TicTacToe\\obj\\",
+      "projectPath": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\TicTacToe.csproj",
+      "packagesPath": "C:\\Users\\Isak Lagerberg\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Eshdi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Isak Lagerberg\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -507,6 +508,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -530,6 +532,10 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "Microsoft.Win32.Registry": {
+            "target": "Package",
+            "version": "[4.7.0, )"
+          },
           "NAudio": {
             "target": "Package",
             "version": "[2.2.1, )"

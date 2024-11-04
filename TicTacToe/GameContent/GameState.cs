@@ -10,9 +10,9 @@ namespace TicTacToe.GameContent
 {
     public class GameState
     {
-        public List<PlayerData> Players { get; set; }
-        public char CurrentPlayerSymbol { get; set; }
-        public string CurrentPlayerName { get; set; }
-        public BoardStateData BoardStateData { get; set; }
+        public required List<PlayerData> Players { get; set; }
+        public required char CurrentPlayerSymbol { get; set; }
+        public required string CurrentPlayerName { get; set; }
+        public required BoardStateData BoardStateData { get; set; }
     }
 }
