@@ -6,7 +6,7 @@ namespace TicTacToe
 {
     public static class MusicManager
     {
-        private static IWavePlayer wavePlayer; // Interface for audio playback
+        private static WaveOutEvent wavePlayer; // Use WaveOutEvent instead of IWavePlayer
         private static AudioFileReader audioFileReader; // Reads audio files
         private static bool isMusicOn = true; // Tracks if music is currently playing
 
