@@ -70,7 +70,7 @@ namespace TicTacToe.Forms
 
         private void UpdatePlayerHighscore()
         {
-            highscore.Text = $"Highscore: {_game.Highscore/2}";
+            highscore.Text = $"Highscore: {_game.CurrentPlayerHighScore}";
         }
 
 

@@ -39,7 +39,7 @@ namespace TicTacToe.GameContent.PlayerContent
             {
                 if (player.GetName() == name)
                 {
-                    player.UpdateHighscore(player.GetHighscore() +1);
+                    player.UpdateHighScore(player.GetHighScore() +1);
                 }
             }
         }
@@ -51,7 +51,7 @@ namespace TicTacToe.GameContent.PlayerContent
             {
                 if (player.GetName() == name)
                 {
-                    return player.GetHighscore();
+                    return player.GetHighScore();
                 }
             }
 
@@ -63,9 +63,9 @@ namespace TicTacToe.GameContent.PlayerContent
             int highscore = 0;
             foreach(IPlayer player in _players)
             {
-                if(player.GetHighscore() > highscore)
+                if(player.GetHighScore() > highscore)
                 {
-                    highscore = player.GetHighscore();
+                    highscore = player.GetHighScore();
                 }
             }
 
@@ -80,7 +80,7 @@ namespace TicTacToe.GameContent.PlayerContent
                 List<PlayerData> playersData = this._players.Select(p => new PlayerData
                 {
                     Name = p.GetName(),
-                    HighScore = p.GetHighscore(),
+                    HighScore = p.GetHighScore(),
                     Symbol = p.GetSymbol(),
                     Color = (p.GetColor().R, p.GetColor().G, p.GetColor().B) // Assuming GetColor() returns a Color object
                 }).ToList();
@@ -115,7 +115,7 @@ namespace TicTacToe.GameContent.PlayerContent
                         data.Symbol,
                         Color.FromArgb(data.Color.R, data.Color.G, data.Color.B)
                     );
-                    player.UpdateHighscore(data.HighScore);
+                    player.UpdateHighScore(data.HighScore);
                     this._players.Add(player);
                 }
             }
@@ -174,6 +174,10 @@ namespace TicTacToe.GameContent.PlayerContent
             return this._players[this._currentPlayerIndex].GetName();
         }
 
+        public int GetCurrentPlayerHighScore()
+        {
+            return this._players[this._currentPlayerIndex].GetHighScore();
+        }
         public void SwitchPlayer()
         {
             this._currentPlayerIndex = (this._currentPlayerIndex + 1) % this._players.Count; 
@@ -201,7 +205,7 @@ namespace TicTacToe.GameContent.PlayerContent
             foreach (var data in playersData)
             {
                 var player = new HumanPlayer(data.Name, data.Symbol, Color.FromArgb(data.Color.R, data.Color.G, data.Color.B)); // Replace with the appropriate color
-                player.UpdateHighscore(data.HighScore);
+                player.UpdateHighScore(data.HighScore);
                 this._players.Add(player);
             }
             // Reset the current player index

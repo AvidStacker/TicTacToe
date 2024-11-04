@@ -36,18 +36,18 @@ namespace TicTacToe.GameContent.PlayerContent
             return this.color;
         }
 
-        public int GetHighscore()
+        public int GetHighScore()
         {
             return this.highscore;
         }
 
-        public void UpdateHighscore(int highscore)
+        public void UpdateHighScore(int highscore)
         {
-            this.SetHighscore(highscore);
+            this.SetHighScore(highscore);
         }
 
         // Private method to set highscore
-        void SetHighscore(int highscore)
+        void SetHighScore(int highscore)
         {
             if (highscore > this.highscore)
             {

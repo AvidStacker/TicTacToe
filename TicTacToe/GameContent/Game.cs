@@ -18,21 +18,19 @@ namespace TicTacToe.GameContent
         public event Action<string> IllegalMove; // Notifies when an illegal move is attempted
         public event Action Draw; // Notifies when the game is a draw
         public event Action GameReset; // Notifies when the game is reset
-        public int Highscore;
 
         public Game()
         {
             this._playerManager = new PlayerManager();
             this._board = new Board();
             this._board.StateChanged += this.OnBoardStateChanged;
-            this.Highscore = this._playerManager.GetHighestHighscore();
         }
 
         public void StartNewGame()
         {
             this._board.Reset();
-            // Trigger event to reset UI and set the turn to the first player
-            GameReset?.Invoke(); // Notify GameForm of reset
+            this._playerManager.LoadPlayers();
+            GameReset?.Invoke();
             TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
         }
 
@@ -110,14 +108,13 @@ namespace TicTacToe.GameContent
         {
             this._playerManager.Reset();
             this._board.Reset();
-            this.GameReset?.Invoke(); // Notify GameForm of reset
-            this.Highscore = this._playerManager.GetHighestHighscore();
-            
+            this.GameReset?.Invoke();
         }
 
         // Provide current player's name and symbol for UI
         public string CurrentPlayerName => this._playerManager.GetCurrentPlayerName();
         public char CurrentPlayerSymbol => this._playerManager.GetCurrentPlayerSymbol();
+        public int CurrentPlayerHighScore => this._playerManager.GetCurrentPlayerHighScore();
 
         // Retrieve the current state of the board
         public char[,] GetBoardState()

@@ -12,9 +12,9 @@ namespace TicTacToe.GameContent.PlayerContent
         string GetName();
         char GetSymbol();
         Color GetColor();
-        int GetHighscore();
+        int GetHighScore();
 
-        void UpdateHighscore(int highscore);
+        void UpdateHighScore(int highscore);
 
         PlayerData GetPlayerData();
     }
