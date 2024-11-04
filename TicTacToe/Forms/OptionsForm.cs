@@ -13,9 +13,18 @@ namespace TicTacToe.Forms
         // Event handler for form load event
         private void OptionsForm_Load(object sender, EventArgs e)
         {
-            // Initialize options components here
-            // Initialize MusicManager with a valid music file path
-            MusicManager.Initialize("C:\\Users\\Eshdi\\Source\\Repos\\TicTacToe911\\TicTacToe\\Resources\\Desktop.mp3");
+            // Build the path to the music file based on the application's startup path
+            string musicFilePath = System.IO.Path.Combine(Application.StartupPath, "Resources", "Desktop.mp3");
+
+            // Check if the file exists before trying to initialize the MusicManager
+            if (System.IO.File.Exists(musicFilePath))
+            {
+                MusicManager.Initialize(musicFilePath);
+            }
+            else
+            {
+                MessageBox.Show("Music file not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Event handler for label click event

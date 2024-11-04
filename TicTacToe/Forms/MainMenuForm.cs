@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using TicTacToe.Forms;
 
@@ -40,8 +41,19 @@ namespace TicTacToe
 
         private void MainMenuForm_Load(object sender, EventArgs e)
         {
-            // Initialize MusicManager with a valid music file path
-            MusicManager.Initialize("C:\\Users\\Eshdi\\Source\\Repos\\TicTacToe911\\TicTacToe\\Resources\\Desktop.mp3");
+            // Build the path to the music file based on the application's startup path
+
+            string musicFilePath = System.IO.Path.Combine(Application.StartupPath, "Resources", "Desktop.mp3");
+            Debug.WriteLine(musicFilePath);
+            // Check if the file exists before trying to initialize the MusicManager
+            if (System.IO.File.Exists(musicFilePath))
+            {
+                MusicManager.Initialize(musicFilePath);
+            }
+            else
+            {
+                MessageBox.Show("Music file not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
