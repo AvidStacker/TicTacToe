@@ -18,20 +18,20 @@ namespace TicTacToe.GameContent
         public event Action<string> IllegalMove; // Notifies when an illegal move is attempted
         public event Action Draw; // Notifies when the game is a draw
         public event Action GameReset; // Notifies when the game is reset
+        public int Highscore;
 
         public Game()
         {
             this._playerManager = new PlayerManager();
             this._board = new Board();
             this._board.StateChanged += this.OnBoardStateChanged;
+            this.Highscore = this._playerManager.GetHighestHighscore();
         }
 
         public void StartNewGame()
         {
             this._playerManager.Reset();
-
             this._board.Reset();
-
             // Trigger event to reset UI and set the turn to the first player
             GameReset?.Invoke(); // Notify GameForm of reset
             TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
@@ -46,6 +46,7 @@ namespace TicTacToe.GameContent
                 CurrentPlayerName = this._playerManager.GetCurrentPlayerName(),
                 BoardStateData = this._board.GetBoardStateData()
             };
+            this._playerManager.SavePlayers();
 
             string jsonString = JsonSerializer.Serialize(gameState);
             File.WriteAllText(filePath, jsonString);
@@ -61,6 +62,7 @@ namespace TicTacToe.GameContent
                 this._playerManager.RestorePlayers(gameState.Players);
                 this._board.LoadState(gameState.BoardStateData);
                 this._playerManager.SetCurrentPlayer(gameState.CurrentPlayerName);
+                
 
                 // Update GameForm based on the loaded state
                 this.OnBoardStateChanged(this, this._board.GetBoardState());
@@ -83,7 +85,9 @@ namespace TicTacToe.GameContent
             }
             else if (this._board.GetBoardState() == BoardState.XWins || this._board.GetBoardState() == BoardState.OWins)
             {
-                this.GameWon?.Invoke(this._playerManager.GetCurrentPlayerName());
+                string winningPlayer = this._playerManager.GetCurrentPlayerName();
+                this.GameWon?.Invoke(winningPlayer);
+                this._playerManager.UpdatePlayerHighscore(winningPlayer);
             }
         }
 
@@ -108,6 +112,8 @@ namespace TicTacToe.GameContent
             this._playerManager.Reset();
             this._board.Reset();
             this.GameReset?.Invoke(); // Notify GameForm of reset
+            this.Highscore = this._playerManager.GetHighestHighscore();
+            
         }
 
         // Provide current player's name and symbol for UI
