@@ -34,7 +34,9 @@ namespace TicTacToe.Forms
                     int r = row; // Capture the current value of row
                     int c = col; // Capture the current value of col
                     _boardButtons[r, c].Click += (sender, args) => OnCellClicked(r, c);
+                    _boardButtons[r, c].TabStop = false; // Prevent focus via Tab
                 }
+                this.ActiveControl = null; // Remove focus from any button
             }
 
             // Attach events to Save, Load, Reset, and New Game buttons
