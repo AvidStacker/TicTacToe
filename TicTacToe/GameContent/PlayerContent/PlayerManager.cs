@@ -119,19 +119,24 @@ namespace TicTacToe.GameContent.PlayerContent
             return this._players;
         }
 
-        
-
         public void SetCurrentPlayer(string name)
         {
+            bool playerFound = false;
+
             for (int i = 0; i < this._players.Count; i++)
             {
                 if (this._players[i].GetName() == name)
                 {
-                    this._currentPlayerIndex = i; //Set current player index to the found player's index
+                    this._currentPlayerIndex = i;
+                    playerFound = true;
+                    break;
                 }
             }
 
-            throw new InvalidOperationException($"Player \"{name}\" not found.");
+            if (!playerFound)
+            {
+                throw new InvalidOperationException($"Player \"{name}\" not found.");
+            }
         }
 
         public char GetCurrentPlayerSymbol()
