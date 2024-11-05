@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using TicTacToe.GameContent.PlayerContent;
@@ -12,17 +13,21 @@ namespace TicTacToe.GameContent
         private PlayerManager _playerManager;
         private Board _board;
 
+        // Stack to store the history of game states for undo functionality
+        private Stack<GameState> _history;
+
         // Define events to notify the GameForm of state changes
-        public event Action<string> TurnChanged; // Notifies when the turn changes
-        public event Action<string> GameWon; // Notifies when the game is won
-        public event Action<string> IllegalMove; // Notifies when an illegal move is attempted
-        public event Action Draw; // Notifies when the game is a draw
-        public event Action GameReset; // Notifies when the game is reset
+        public event Action<string> TurnChanged;
+        public event Action<string> GameWon;
+        public event Action<string> IllegalMove;
+        public event Action Draw;
+        public event Action GameReset;
 
         public Game()
         {
             this._playerManager = new PlayerManager();
             this._board = new Board();
+            this._history = new Stack<GameState>(); // Initialize the history stack
             this._board.StateChanged += this.OnBoardStateChanged;
         }
 
@@ -30,21 +35,14 @@ namespace TicTacToe.GameContent
         {
             this._board.Reset();
             this._playerManager.LoadPlayers();
+            _history.Clear(); // Clear history at the start of a new game
             GameReset?.Invoke();
             TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
         }
 
         public void SaveGame(string filePath)
         {
-            var gameState = new GameState
-            {
-                Players = this._playerManager.GetPlayersData(),
-                CurrentPlayerSymbol = this._playerManager.GetCurrentPlayerSymbol(),
-                CurrentPlayerName = this._playerManager.GetCurrentPlayerName(),
-                BoardStateData = this._board.GetBoardStateData()
-            };
-            this._playerManager.SavePlayers();
-
+            var gameState = CreateGameState();
             string jsonString = JsonSerializer.Serialize(gameState);
             File.WriteAllText(filePath, jsonString);
         }
@@ -56,16 +54,63 @@ namespace TicTacToe.GameContent
                 string jsonString = File.ReadAllText(filePath);
                 var gameState = JsonSerializer.Deserialize<GameState>(jsonString);
 
-                this._playerManager.RestorePlayers(gameState.Players);
-                this._board.LoadState(gameState.BoardStateData);
-                this._playerManager.SetCurrentPlayer(gameState.CurrentPlayerName);
-                
+                RestoreGameState(gameState);
 
-                // Update GameForm based on the loaded state
-                this.OnBoardStateChanged(this, this._board.GetBoardState());
-
-                // Trigger events to refresh the UI
+                OnBoardStateChanged(this, this._board.GetBoardState());
                 TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
+            }
+        }
+
+        private GameState CreateGameState()
+        {
+            return new GameState
+            {
+                Players = this._playerManager.GetPlayersData(),
+                CurrentPlayerSymbol = this._playerManager.GetCurrentPlayerSymbol(),
+                CurrentPlayerName = this._playerManager.GetCurrentPlayerName(),
+                BoardStateData = this._board.GetBoardStateData()
+            };
+        }
+
+        private void RestoreGameState(GameState gameState)
+        {
+            this._playerManager.RestorePlayers(gameState.Players);
+            this._board.LoadState(gameState.BoardStateData);
+            this._playerManager.SetCurrentPlayer(gameState.CurrentPlayerName);
+        }
+
+        public void UpdateBoard(int row, int col)
+        {
+            char currentSymbol = this._playerManager.GetCurrentPlayerSymbol();
+
+            // Only save the current game state to history if the move is legal
+            if (this._board.MakeMove(row, col, currentSymbol))
+            {
+                // Save the game state after making the move
+                this._history.Push(CreateGameState());
+
+                // Notify listeners and switch player
+                this.OnBoardStateChanged(this, this._board.GetBoardState());
+                this._playerManager.SwitchPlayer();
+                this.TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
+            }
+            else
+            {
+                this.IllegalMove?.Invoke("Illegal move");
+            }
+        }
+
+
+        public void Undo()
+        {
+            if (this._history.Count > 0)
+            {
+                var previousState = this._history.Pop();
+                RestoreGameState(previousState);
+
+                // Notify listeners to update the UI based on the restored state
+                OnBoardStateChanged(this, _board.GetBoardState());
+                this.TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
             }
         }
 
@@ -88,38 +133,21 @@ namespace TicTacToe.GameContent
             }
         }
 
-        public void UpdateBoard(int row, int col)
-        {
-            char currentSymbol = this._playerManager.GetCurrentPlayerSymbol();
-
-            if (this._board.MakeMove(row, col, currentSymbol))
-            {
-                this.TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
-                this.OnBoardStateChanged(this, this._board.GetBoardState());
-                this._playerManager.SwitchPlayer();
-            }
-            else
-            {
-                this.IllegalMove?.Invoke("Illegal move");
-            }
-        }
-
         public void ResetGame()
         {
             this._playerManager.Reset();
             this._board.Reset();
+            this._history.Clear(); // Clear history on reset
             this.GameReset?.Invoke();
         }
 
-        // Provide current player's name and symbol for UI
         public string CurrentPlayerName => this._playerManager.GetCurrentPlayerName();
         public char CurrentPlayerSymbol => this._playerManager.GetCurrentPlayerSymbol();
         public int CurrentPlayerHighScore => this._playerManager.GetCurrentPlayerHighScore();
 
-        // Retrieve the current state of the board
         public char[,] GetBoardState()
         {
-            return this._board.GetGridState(); // Assumes GetCells returns a 2D char array of the board
+            return this._board.GetGridState();
         }
     }
 }
