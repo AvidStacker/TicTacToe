@@ -1,28 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Dokument\\Projects\\Threejs\\TicTacToe\\TicTacToe\\TicTacToe.csproj": {}
+    "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\TicTacToe.csproj": {}
   },
   "projects": {
-    "C:\\Dokument\\Projects\\Threejs\\TicTacToe\\TicTacToe\\TicTacToe.csproj": {
+    "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\TicTacToe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dokument\\Projects\\Threejs\\TicTacToe\\TicTacToe\\TicTacToe.csproj",
+        "projectUniqueName": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\TicTacToe.csproj",
         "projectName": "TicTacToe",
-        "projectPath": "C:\\Dokument\\Projects\\Threejs\\TicTacToe\\TicTacToe\\TicTacToe.csproj",
-        "packagesPath": "C:\\Users\\ilage\\.nuget\\packages\\",
-        "outputPath": "C:\\Dokument\\Projects\\Threejs\\TicTacToe\\TicTacToe\\obj\\",
+        "projectPath": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\TicTacToe.csproj",
+        "packagesPath": "C:\\Users\\Isak Lagerberg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Isak Lagerberg\\Documents\\GitHub\\TicTacToe\\TicTacToe\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ilage\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Isak Lagerberg\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0-windows"
+          "net8.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,8 +26,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0-windows7.0": {
-            "targetAlias": "net7.0-windows",
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
             "projectReferences": {}
           }
         },
@@ -39,11 +35,16 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
-        "net7.0-windows7.0": {
-          "targetAlias": "net7.0-windows",
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
           "dependencies": {
             "Microsoft.Win32.Registry": {
               "target": "Package",
@@ -73,7 +74,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -11,11 +11,10 @@ namespace TicTacToe.Forms
         private System.Windows.Forms.Label highscore;
         private System.Windows.Forms.Label playerLabel;
         private System.Windows.Forms.Label messageLabel;
-        private System.Windows.Forms.Button newGameButton;
+        private System.Windows.Forms.Button newGameButton; // New Game button
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.Button resetButton;
-        private System.Windows.Forms.Button undoButton; // Add Undo Button
         private System.Windows.Forms.Button[,] _boardButtons;
 
         private void InitializeComponent()
@@ -60,7 +59,7 @@ namespace TicTacToe.Forms
             // New Game Button
             this.newGameButton = new System.Windows.Forms.Button
             {
-                Location = new System.Drawing.Point(170, 20),
+                Location = new System.Drawing.Point(170, 20), // Position to the left of Save Button
                 Name = "newGameButton",
                 Size = new System.Drawing.Size(75, 30),
                 TabIndex = 2,
@@ -91,17 +90,7 @@ namespace TicTacToe.Forms
                 UseVisualStyleBackColor = true
             };
 
-            // Undo Button
-            this.undoButton = new System.Windows.Forms.Button
-            {
-                Location = new System.Drawing.Point(410, 20),
-                Name = "undoButton",
-                Size = new System.Drawing.Size(75, 30),
-                TabIndex = 5,
-                Text = "Undo",
-                UseVisualStyleBackColor = true
-            };
-            this.undoButton.Click += new EventHandler(this.UndoLastMove); // Add Click Event
+           
 
             // Initialize Game Board Buttons
             this._boardButtons = new System.Windows.Forms.Button[3, 3];
@@ -126,23 +115,17 @@ namespace TicTacToe.Forms
             this.Controls.Add(this.highscore);
             this.Controls.Add(this.playerLabel);
             this.Controls.Add(this.messageLabel);
-            this.Controls.Add(this.newGameButton);
+            this.Controls.Add(this.newGameButton); // Add New Game Button to the form
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.loadButton);
-            this.Controls.Add(this.undoButton); // Add Undo Button to the form
+            
         }
 
         // Event handler for New Game button click
         private void NewGameButton_Click(object sender, EventArgs e)
         {
             // Logic to start a new game, such as calling StartNewGame method from the Game class
-        }
-
-        // Event handler for Undo button click
-        private void UndoLastMove(object sender, EventArgs e)
-        {
-            // Logic to undo the last move, as defined in the main GameForm.cs file
-            UndoLastMove();
+            // Example: game.StartNewGame("Player 1", "Player 2");
         }
 
         // Cleanup method for disposing resources

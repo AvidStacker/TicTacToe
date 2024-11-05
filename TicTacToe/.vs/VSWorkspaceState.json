@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Forms",
-    "\\GameContent"
+    "\\Forms"
   ],
-  "SelectedNode": "\\Forms\\GameForm.Designer.cs",
+  "SelectedNode": "\\Forms",
   "PreviewInSolutionExplorer": false
 }
