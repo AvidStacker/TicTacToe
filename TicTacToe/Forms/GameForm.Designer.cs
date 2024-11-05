@@ -22,8 +22,11 @@ namespace TicTacToe.Forms
         private void InitializeComponent()
         {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(_windowWidth, _windowHeight);
+            this.ClientSize = new System.Drawing.Size(831, 580);
             this.Text = "Tic Tac Toe";
+            this.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+
 
             // Panel for the highscore, player turn, and game status labels
             Panel infoPanel = new Panel
