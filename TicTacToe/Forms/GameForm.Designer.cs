@@ -16,93 +16,89 @@ namespace TicTacToe.Forms
         private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Button[,] _boardButtons;
+        private int _windowWidth = 1200;
+        private int _windowHeight = 600;
 
         private void InitializeComponent()
         {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(_windowWidth, _windowHeight);
             this.Text = "Tic Tac Toe";
 
-            // Player Highscore
+            // Panel for the highscore, player turn, and game status labels
+            Panel infoPanel = new Panel
+            {
+                Size = new System.Drawing.Size(400, 100),
+                Location = new System.Drawing.Point((this.ClientSize.Width - 400) / 2, 20),
+                BackColor = System.Drawing.Color.LightGray,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
+            // Highscore Label
             this.highscore = new System.Windows.Forms.Label
             {
                 AutoSize = true,
-                Location = new System.Drawing.Point(10, 20),
+                Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold),
+                ForeColor = System.Drawing.Color.DarkBlue,
+                Location = new System.Drawing.Point(10, 10),
                 Name = "highscore",
                 Size = new System.Drawing.Size(130, 20),
                 TabIndex = 0,
-                Text = "Highscore: "
+                Text = "Highscore: 0"
             };
 
-            // Player Label
+            // Player Turn Label
             this.playerLabel = new System.Windows.Forms.Label
             {
                 AutoSize = true,
-                Location = new System.Drawing.Point(10, 20),
+                Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold),
+                ForeColor = System.Drawing.Color.DarkGreen,
+                Location = new System.Drawing.Point(10, 40),
                 Name = "playerLabel",
                 Size = new System.Drawing.Size(130, 20),
-                TabIndex = 0,
-                Text = "Player's turn: "
+                TabIndex = 1,
+                Text = "Player's turn: X"
             };
 
-            // Message Label
+            // Game Status Label
             this.messageLabel = new System.Windows.Forms.Label
             {
                 AutoSize = true,
-                Location = new System.Drawing.Point(10, 50),
+                Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold),
+                ForeColor = System.Drawing.Color.DarkRed,
+                Location = new System.Drawing.Point(10, 70),
                 Name = "messageLabel",
-                Size = new System.Drawing.Size(100, 20),
-                TabIndex = 1,
-                Text = "Game status"
-            };
-
-            // New Game Button
-            this.newGameButton = new System.Windows.Forms.Button
-            {
-                Location = new System.Drawing.Point(170, 20), // Position to the left of Save Button
-                Name = "newGameButton",
-                Size = new System.Drawing.Size(75, 30),
+                Size = new System.Drawing.Size(130, 20),
                 TabIndex = 2,
-                Text = "New Game",
-                UseVisualStyleBackColor = true
-            };
-            this.newGameButton.Click += new EventHandler(this.NewGameButton_Click);
-
-            // Save Button
-            this.saveButton = new System.Windows.Forms.Button
-            {
-                Location = new System.Drawing.Point(250, 20),
-                Name = "saveButton",
-                Size = new System.Drawing.Size(75, 30),
-                TabIndex = 3,
-                Text = "Save",
-                UseVisualStyleBackColor = true
+                Text = "Game in progress"
             };
 
-            // Load Button
-            this.loadButton = new System.Windows.Forms.Button
-            {
-                Location = new System.Drawing.Point(330, 20),
-                Name = "loadButton",
-                Size = new System.Drawing.Size(75, 30),
-                TabIndex = 4,
-                Text = "Load",
-                UseVisualStyleBackColor = true
-            };
+            // Add labels to the info panel
+            infoPanel.Controls.Add(this.highscore);
+            infoPanel.Controls.Add(this.playerLabel);
+            infoPanel.Controls.Add(this.messageLabel);
 
-           
-
-            // Initialize Game Board Buttons
+            // Initialize Game Board Buttons and center them
             this._boardButtons = new System.Windows.Forms.Button[3, 3];
+
+            int buttonSize = 100;
+            int spacing = 10;
+            int boardWidth = 3 * buttonSize + 2 * spacing;
+            int boardHeight = 3 * buttonSize + 2 * spacing;
+
+            // Calculate the starting position for centering the board
+            int startX = (this.ClientSize.Width - boardWidth) / 2;
+            int startY = 150; // Position below the info panel
+
             for (int row = 0; row < 3; row++)
             {
                 for (int col = 0; col < 3; col++)
                 {
                     this._boardButtons[row, col] = new System.Windows.Forms.Button
                     {
-                        Width = 100,
-                        Height = 100,
-                        Location = new System.Drawing.Point(100 * col + 10, 100 * row + 80),
+                        Width = buttonSize,
+                        Height = buttonSize,
+                        Location = new System.Drawing.Point(startX + col * (buttonSize + spacing), startY + row * (buttonSize + spacing)),
                         Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold),
                         TabIndex = 6 + (row * 3 + col),
                         UseVisualStyleBackColor = true
@@ -111,15 +107,59 @@ namespace TicTacToe.Forms
                 }
             }
 
+            // Center the control buttons (New Game, Save, Load) below the board
+            int buttonWidth = 75;
+            int buttonHeight = 30;
+            int buttonSpacing = 20; // spacing between the buttons
+            int totalButtonsWidth = (buttonWidth * 3) + (buttonSpacing * 2);
+
+            // Calculate starting X position to center the buttons below the board
+            int buttonsStartX = (this.ClientSize.Width - totalButtonsWidth) / 2;
+            int buttonsStartY = startY + boardHeight + 20; // Add a gap below the board
+
+            // New Game Button
+            this.newGameButton = new System.Windows.Forms.Button
+            {
+                Location = new System.Drawing.Point(buttonsStartX, buttonsStartY),
+                Name = "newGameButton",
+                Size = new System.Drawing.Size(buttonWidth, buttonHeight),
+                TabIndex = 3,
+                Text = "New Game",
+                UseVisualStyleBackColor = true
+            };
+            this.newGameButton.Click += new EventHandler(this.NewGameButton_Click);
+
+            // Save Button
+            this.saveButton = new System.Windows.Forms.Button
+            {
+                Location = new System.Drawing.Point(buttonsStartX + buttonWidth + buttonSpacing, buttonsStartY),
+                Name = "saveButton",
+                Size = new System.Drawing.Size(buttonWidth, buttonHeight),
+                TabIndex = 4,
+                Text = "Save",
+                UseVisualStyleBackColor = true
+            };
+
+            // Load Button
+            this.loadButton = new System.Windows.Forms.Button
+            {
+                Location = new System.Drawing.Point(buttonsStartX + 2 * (buttonWidth + buttonSpacing), buttonsStartY),
+                Name = "loadButton",
+                Size = new System.Drawing.Size(buttonWidth, buttonHeight),
+                TabIndex = 5,
+                Text = "Load",
+                UseVisualStyleBackColor = true
+            };
+
             // Add all controls to the form
-            this.Controls.Add(this.highscore);
-            this.Controls.Add(this.playerLabel);
-            this.Controls.Add(this.messageLabel);
-            this.Controls.Add(this.newGameButton); // Add New Game Button to the form
+            this.Controls.Add(infoPanel); // Add the info panel with labels
+            this.Controls.Add(this.newGameButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.loadButton);
-            
         }
+
+
+
 
         // Event handler for New Game button click
         private void NewGameButton_Click(object sender, EventArgs e)

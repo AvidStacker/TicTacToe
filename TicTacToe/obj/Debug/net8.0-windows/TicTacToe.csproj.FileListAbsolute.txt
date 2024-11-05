@@ -19,7 +19,6 @@ D:\Visual Studio\Group_Project\TicTacToe\obj\Debug\net8.0-windows\ref\TicTacToe.
 C:\Users\Isak Lagerberg\Documents\GitHub\TicTacToe\TicTacToe\obj\Debug\net8.0-windows\TicTacToe.Forms.GameForm.resources
 C:\Users\Isak Lagerberg\Documents\GitHub\TicTacToe\TicTacToe\obj\Debug\net8.0-windows\TicTacToe.MainMenuForm.resources
 C:\Users\Isak Lagerberg\Documents\GitHub\TicTacToe\TicTacToe\obj\Debug\net8.0-windows\TicTacToe.Forms.OptionsForm.resources
-C:\Users\Isak Lagerberg\Documents\GitHub\TicTacToe\TicTacToe\obj\Debug\net8.0-windows\TicTacToe.GameContent.Game.resources
 C:\Users\Isak Lagerberg\Documents\GitHub\TicTacToe\TicTacToe\obj\Debug\net8.0-windows\TicTacToe.csproj.GenerateResource.cache
 C:\Users\Isak Lagerberg\Documents\GitHub\TicTacToe\TicTacToe\obj\Debug\net8.0-windows\TicTacToe.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Isak Lagerberg\Documents\GitHub\TicTacToe\TicTacToe\obj\Debug\net8.0-windows\TicTacToe.AssemblyInfoInputs.cache
@@ -74,3 +73,4 @@ C:\Users\Isak Lagerberg\Documents\GitHub\TicTacToe\TicTacToe\bin\Debug\net8.0-wi
 C:\Users\Isak Lagerberg\Documents\GitHub\TicTacToe\TicTacToe\bin\Debug\net8.0-windows\NAudio.WinMM.dll
 C:\Users\Isak Lagerberg\Documents\GitHub\TicTacToe\TicTacToe\obj\Debug\net8.0-windows\TicTacToe.csproj.AssemblyReference.cache
 C:\Users\Isak Lagerberg\Documents\GitHub\TicTacToe\TicTacToe\obj\Debug\net8.0-windows\TicTacToe.csproj.Up2Date
+C:\Users\Isak Lagerberg\Documents\GitHub\TicTacToe\TicTacToe\obj\Debug\net8.0-windows\Game.resources

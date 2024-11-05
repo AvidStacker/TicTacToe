@@ -14,7 +14,6 @@ namespace TicTacToe.GameContent.PlayerContent
     internal class PlayerManager
     {
         private int _currentPlayerIndex;
-        private Random _random;
         private readonly string _jsonFilepath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory)?.Parent?.Parent?.FullName ?? string.Empty,"GameContent\\PlayerContent\\PlayerSettings.json"); 
         //Relative filepath to PlayerSettings.json. Trying to avoild a null value - therefore all of the question mark.
 
