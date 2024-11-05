@@ -34,9 +34,13 @@ namespace TicTacToe.Forms
                     int r = row;
                     int c = col;
                     _boardButtons[r, c].Click += (sender, args) => OnCellClicked(r, c);
+<<<<<<< HEAD
                     _boardButtons[r, c].TabStop = false;
                 }
                 this.ActiveControl = null;
+=======
+                }
+>>>>>>> parent of b4d95f3 (Merge branch 'main' of https://github.com/AvidStacker/TicTacToe)
             }
 
             // Attach events to Save, Load, Reset, New Game, and Undo buttons

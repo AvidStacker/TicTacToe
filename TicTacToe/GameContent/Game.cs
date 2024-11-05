@@ -1,153 +1,173 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
-using TicTacToe.GameContent.PlayerContent;
+﻿using System.Text.Json;
 using TicTacToe.GameContent.BoardContent;
+using TicTacToe.GameContent.PlayerContent;
 using TicTacToe.GameContent;
 
-namespace TicTacToe.GameContent
+public class Game : IGame
 {
-    public class Game : IGame
+    private PlayerManager _playerManager;
+    private Board _board;
+
+    // Stack to store the history of game states for undo functionality
+    private Stack<GameState> _history;
+
+    // Flag to track if undo is allowed
+    private bool _canUndo;
+
+    // Define events to notify the GameForm of state changes
+    public event Action<string> TurnChanged;
+    public event Action<string> GameWon;
+    public event Action<string> IllegalMove;
+    public event Action Draw;
+    public event Action GameReset;
+
+    public Game()
     {
-        private PlayerManager _playerManager;
-        private Board _board;
+        this._playerManager = new PlayerManager();
+        this._board = new Board();
+        this._history = new Stack<GameState>(); // Initialize the history stack
+        this._board.StateChanged += this.OnBoardStateChanged;
+        _canUndo = false; // Initialize the undo flag as false
+    }
 
-        // Stack to store the history of game states for undo functionality
-        private Stack<GameState> _history;
+    public void StartNewGame()
+    {
+        this._board.Reset();
+        this._playerManager.LoadPlayers();
+        _history.Clear(); // Clear history at the start of a new game
 
-        // Define events to notify the GameForm of state changes
-        public event Action<string> TurnChanged;
-        public event Action<string> GameWon;
-        public event Action<string> IllegalMove;
-        public event Action Draw;
-        public event Action GameReset;
+        // Save the initial game state so it cannot be undone past this point
+        _history.Push(CreateGameState());
+        _canUndo = false; // No move to undo at the start
 
-        public Game()
+        GameReset?.Invoke();
+        TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
+    }
+
+    public void SaveGame(string filePath)
+    {
+        var gameState = CreateGameState();
+        string jsonString = JsonSerializer.Serialize(gameState);
+        File.WriteAllText(filePath, jsonString);
+    }
+
+    public void LoadGame(string filePath)
+    {
+        if (File.Exists(filePath))
         {
-            this._playerManager = new PlayerManager();
-            this._board = new Board();
-            this._history = new Stack<GameState>(); // Initialize the history stack
-            this._board.StateChanged += this.OnBoardStateChanged;
-        }
+            string jsonString = File.ReadAllText(filePath);
+            var gameState = JsonSerializer.Deserialize<GameState>(jsonString);
 
-        public void StartNewGame()
-        {
-            this._board.Reset();
-            this._playerManager.LoadPlayers();
-            _history.Clear(); // Clear history at the start of a new game
-            GameReset?.Invoke();
+            RestoreGameState(gameState);
+
+            OnBoardStateChanged(this, this._board.GetBoardState());
             TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
         }
+    }
 
-        public void SaveGame(string filePath)
+    private GameState CreateGameState()
+    {
+        return new GameState
         {
-            var gameState = CreateGameState();
-            string jsonString = JsonSerializer.Serialize(gameState);
-            File.WriteAllText(filePath, jsonString);
-        }
+            Players = this._playerManager.GetPlayersData(),
+            CurrentPlayerSymbol = this._playerManager.GetCurrentPlayerSymbol(),
+            CurrentPlayerName = this._playerManager.GetCurrentPlayerName(),
+            BoardStateData = this._board.GetBoardStateData()
+        };
+    }
 
-        public void LoadGame(string filePath)
+    private void RestoreGameState(GameState gameState)
+    {
+        this._playerManager.RestorePlayers(gameState.Players);
+        this._board.LoadState(gameState.BoardStateData);
+        this._playerManager.SetCurrentPlayer(gameState.CurrentPlayerName);
+    }
+
+    public void UpdateBoard(int row, int col)
+    {
+        char currentSymbol = this._playerManager.GetCurrentPlayerSymbol();
+
+        // Only save the current game state to history if the move is legal
+        if (this._board.MakeMove(row, col, currentSymbol))
         {
-            if (File.Exists(filePath))
-            {
-                string jsonString = File.ReadAllText(filePath);
-                var gameState = JsonSerializer.Deserialize<GameState>(jsonString);
+            // Save the game state after making the move
+            this._history.Push(CreateGameState());
+            _canUndo = true; // Enable undo since a new move has been made
 
-                RestoreGameState(gameState);
-
-                OnBoardStateChanged(this, this._board.GetBoardState());
-                TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
-            }
+            // Notify listeners and switch player
+            this.OnBoardStateChanged(this, this._board.GetBoardState());
+            this._playerManager.SwitchPlayer();
+            this.TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
         }
-
-        private GameState CreateGameState()
+        else
         {
-            return new GameState
-            {
-                Players = this._playerManager.GetPlayersData(),
-                CurrentPlayerSymbol = this._playerManager.GetCurrentPlayerSymbol(),
-                CurrentPlayerName = this._playerManager.GetCurrentPlayerName(),
-                BoardStateData = this._board.GetBoardStateData()
-            };
+            this.IllegalMove?.Invoke("Illegal move");
         }
+    }
 
-        private void RestoreGameState(GameState gameState)
+    public void Undo()
+    {
+        // Only allow undo if there is exactly one move to undo
+        if (_canUndo && this._history.Count > 1)
         {
-            this._playerManager.RestorePlayers(gameState.Players);
-            this._board.LoadState(gameState.BoardStateData);
-            this._playerManager.SetCurrentPlayer(gameState.CurrentPlayerName);
-        }
+            // Pop the last move from the history
+            this._history.Pop();
 
-        public void UpdateBoard(int row, int col)
+            // Get the previous state to restore
+            var previousState = this._history.Peek();
+            RestoreGameState(previousState);
+
+            _canUndo = false; // Disable further undos until another move is made
+
+            // Notify listeners to update the UI based on the restored state
+            OnBoardStateChanged(this, _board.GetBoardState());
+            this.TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
+        }
+        else
         {
-            char currentSymbol = this._playerManager.GetCurrentPlayerSymbol();
-
-            // Only save the current game state to history if the move is legal
-            if (this._board.MakeMove(row, col, currentSymbol))
-            {
-                // Save the game state after making the move
-                this._history.Push(CreateGameState());
-
-                // Notify listeners and switch player
-                this.OnBoardStateChanged(this, this._board.GetBoardState());
-                this._playerManager.SwitchPlayer();
-                this.TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
-            }
-            else
-            {
-                this.IllegalMove?.Invoke("Illegal move");
-            }
+            // No move to undo (only initial state is in the history or undo was already used)
+            IllegalMove?.Invoke("No moves to undo");
         }
+    }
 
+    public void OnBoardStateChanged(object sender, BoardState newState)
+    {
+        this.CheckGameState();
+    }
 
-        public void Undo()
+    public void CheckGameState()
+    {
+        if (this._board.GetBoardState() == BoardState.Draw)
         {
-            if (this._history.Count > 0)
-            {
-                var previousState = this._history.Pop();
-                RestoreGameState(previousState);
-
-                // Notify listeners to update the UI based on the restored state
-                OnBoardStateChanged(this, _board.GetBoardState());
-                this.TurnChanged?.Invoke(this._playerManager.GetCurrentPlayerName());
-            }
+            this.Draw?.Invoke();
         }
-
-        public void OnBoardStateChanged(object sender, BoardState newState)
+        else if (this._board.GetBoardState() == BoardState.XWins || this._board.GetBoardState() == BoardState.OWins)
         {
-            this.CheckGameState();
+            string winningPlayer = this._playerManager.GetCurrentPlayerName();
+            this.GameWon?.Invoke(winningPlayer);
+            this._playerManager.UpdatePlayerHighscore(winningPlayer);
         }
+    }
 
-        public void CheckGameState()
-        {
-            if (this._board.GetBoardState() == BoardState.Draw)
-            {
-                this.Draw?.Invoke();
-            }
-            else if (this._board.GetBoardState() == BoardState.XWins || this._board.GetBoardState() == BoardState.OWins)
-            {
-                string winningPlayer = this._playerManager.GetCurrentPlayerName();
-                this.GameWon?.Invoke(winningPlayer);
-                this._playerManager.UpdatePlayerHighscore(winningPlayer);
-            }
-        }
+    public void ResetGame()
+    {
+        this._playerManager.Reset();
+        this._board.Reset();
+        this._history.Clear(); // Clear history on reset
 
-        public void ResetGame()
-        {
-            this._playerManager.Reset();
-            this._board.Reset();
-            this._history.Clear(); // Clear history on reset
-            this.GameReset?.Invoke();
-        }
+        // Save the initial state after reset to prevent undo past this point
+        _history.Push(CreateGameState());
+        _canUndo = false; // No move to undo after reset
 
-        public string CurrentPlayerName => this._playerManager.GetCurrentPlayerName();
-        public char CurrentPlayerSymbol => this._playerManager.GetCurrentPlayerSymbol();
-        public int CurrentPlayerHighScore => this._playerManager.GetCurrentPlayerHighScore();
+        this.GameReset?.Invoke();
+    }
 
-        public char[,] GetBoardState()
-        {
-            return this._board.GetGridState();
-        }
+    public string CurrentPlayerName => this._playerManager.GetCurrentPlayerName();
+    public char CurrentPlayerSymbol => this._playerManager.GetCurrentPlayerSymbol();
+    public int CurrentPlayerHighScore => this._playerManager.GetCurrentPlayerHighScore();
+
+    public char[,] GetBoardState()
+    {
+        return this._board.GetGridState();
     }
 }

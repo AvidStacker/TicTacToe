@@ -14,7 +14,6 @@ C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\TicTac
 C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\TicTacToe.Forms.GameForm.resources
 C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\TicTacToe.MainMenuForm.resources
 C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\TicTacToe.Forms.OptionsForm.resources
-C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\TicTacToe.GameContent.Game.resources
 C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\TicTacToe.csproj.GenerateResource.cache
 C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\TicTacToe.GeneratedMSBuildEditorConfig.editorconfig
 C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\TicTacToe.AssemblyInfoInputs.cache
@@ -26,3 +25,4 @@ C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\refint
 C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\TicTacToe.pdb
 C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\TicTacToe.genruntimeconfig.cache
 C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\ref\TicTacToe.dll
+C:\Dokument\Projects\Threejs\TicTacToe\TicTacToe\obj\Debug\net7.0-windows\Game.resources
