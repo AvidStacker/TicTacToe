@@ -10,7 +10,7 @@ namespace TicTacToe.Forms
 
         public GameForm()
         {
-            InitializeComponent();
+            InitializeComponent(); // Call to initialize controls defined in the designer
             this._game = new Game();
 
             // Set up event handlers for the Game class
@@ -20,7 +20,7 @@ namespace TicTacToe.Forms
             this._game.Draw += this.OnDraw;
             this._game.GameReset += this.OnGameReset;
             UpdatePlayerDisplay();
-            InitializeButtonEvents();
+            InitializeButtonEvents(); // Initialize button events
             UpdatePlayerHighscore();
         }
 
@@ -31,35 +31,17 @@ namespace TicTacToe.Forms
             {
                 for (int col = 0; col < 3; col++)
                 {
-                    int r = row;
-                    int c = col;
+                    int r = row; // Capture the current value of row
+                    int c = col; // Capture the current value of col
                     _boardButtons[r, c].Click += (sender, args) => OnCellClicked(r, c);
-<<<<<<< HEAD
-                    _boardButtons[r, c].TabStop = false;
                 }
-                this.ActiveControl = null;
-=======
-                }
->>>>>>> parent of b4d95f3 (Merge branch 'main' of https://github.com/AvidStacker/TicTacToe)
             }
 
-            // Attach events to Save, Load, Reset, New Game, and Undo buttons
+            // Attach events to Save, Load, Reset, and New Game buttons
             saveButton.Click += (sender, args) => _game.SaveGame("gameState.json");
             loadButton.Click += (sender, args) => _game.LoadGame("gameState.json");
-            newGameButton.Click += (sender, args) => StartNewGame();
-
-            // Add an Undo button handler to call the Undo method
-            undoButton.Click += (sender, args) => UndoLastMove();
-        }
-
-        private void UndoLastMove()
-        {
-            _game.Undo(); // Call the Undo method in Game
-
-            // Update the UI after an undo operation
-            UpdateBoardUI();
-            UpdatePlayerDisplay();
-            messageLabel.Text = "Last move undone!";
+            
+            newGameButton.Click += (sender, args) => StartNewGame(); // New Game button event
         }
 
         private void OnCellClicked(int row, int col)
@@ -69,14 +51,14 @@ namespace TicTacToe.Forms
 
         private void UpdateBoardUI()
         {
-            char[,] boardData = _game.GetBoardState();
+            char[,] boardData = _game.GetBoardState(); // Get the current board state
 
             for (int row = 0; row < 3; row++)
             {
                 for (int col = 0; col < 3; col++)
                 {
                     _boardButtons[row, col].Text = boardData[row, col].ToString();
-                    _boardButtons[row, col].Enabled = boardData[row, col] == ' ';
+                    _boardButtons[row, col].Enabled = boardData[row, col] == ' '; // Enable button only if cell is blank
                 }
             }
         }
@@ -91,21 +73,22 @@ namespace TicTacToe.Forms
             highscore.Text = $"Highscore: {_game.CurrentPlayerHighScore}";
         }
 
+
         private void OnTurnChanged(string playerName)
         {
-            UpdatePlayerDisplay();
+            UpdatePlayerDisplay(); // Update player display when turn changes
             UpdateBoardUI();
         }
 
         private void OnGameWon(string playerName)
         {
             messageLabel.Text = $"Game won by {playerName}!";
-            DisableBoard();
+            DisableBoard(); // Disable buttons to prevent further moves
         }
 
         private void OnIllegalMove(string message)
         {
-            messageLabel.Text = message;
+            messageLabel.Text = message; // Display the illegal move message
         }
 
         private void OnDraw()
@@ -116,31 +99,31 @@ namespace TicTacToe.Forms
 
         private void OnGameReset()
         {
-            messageLabel.Text = "Game reset!";
-            UpdateBoardUI();
-            EnableBoard();
+            messageLabel.Text = "Game reset!"; // Notify that the game has been reset
+            UpdateBoardUI(); // Clear board UI
+            EnableBoard(); // Re-enable board buttons
         }
 
         private void StartNewGame()
         {
-            _game.StartNewGame();
-            messageLabel.Text = "Starting a new game!";
-            UpdateBoardUI();
-            EnableBoard();
-            UpdatePlayerDisplay();
+            _game.StartNewGame(); // Reset the game state for a fresh start
+            messageLabel.Text = "Starting a new game!"; // Update message label
+            UpdateBoardUI(); // Clear the board UI
+            EnableBoard(); // Enable board buttons
+            UpdatePlayerDisplay(); // Show the initial player's turn
             UpdatePlayerHighscore();
         }
 
         private void DisableBoard()
         {
             foreach (var button in _boardButtons)
-                button.Enabled = false;
+                button.Enabled = false; // Disable all buttons
         }
 
         private void EnableBoard()
         {
             foreach (var button in _boardButtons)
-                button.Enabled = true;
+                button.Enabled = true; // Enable all buttons
         }
     }
 }
