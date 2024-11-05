@@ -16,21 +16,13 @@ namespace TicTacToe.GameContent.PlayerContent
         private int _currentPlayerIndex;
         private Random _random;
         private readonly string _jsonFilepath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory)?.Parent?.Parent?.FullName ?? string.Empty,"GameContent\\PlayerContent\\PlayerSettings.json"); 
-        //Relativ sökväg till PlayerSettings.json (tror jag, inte testat om den fungerar). Har försökt undvika ett eventuellt null värde, därav conditional alla conditional opperators. 
-
-        //Skapa ett event som kan notifiera andra klasser vid uppdatering av players?
+        //Relative filepath to PlayerSettings.json. Trying to avoild a null value - therefore all of the question mark.
 
         private List<IPlayer> _players { get; set; }
 
         public PlayerManager()
         {
             this._players = LoadPlayers(); //Laddar in spelare direkt när ett PlayerManager objekt skapas för att inte råka skriva över de existerande spelarna
-        }
-
-        private void OnPlayerSettingsUpdated(string symbol, Color color)
-        {
-            //Implementera Obsever pattern med hjälp av t.ex. ett event
-            //Implementeras vid senare tillfälle
         }
 
         public void UpdatePlayerHighscore(string name)
@@ -55,7 +47,7 @@ namespace TicTacToe.GameContent.PlayerContent
                 }
             }
 
-            return 0; //Default-return om spelaren inte finns 
+            return 0; //Default-return if the players doesn't exist
         }
 
         public int GetHighestHighscore() //Returns the highest highscore of all players
@@ -76,18 +68,18 @@ namespace TicTacToe.GameContent.PlayerContent
         {
             try
             {
-                // Convert each Player object in _players to a PlayerData object
+                // Converts each Player object in _players to a PlayerData object
                 List<PlayerData> playersData = this._players.Select(p => new PlayerData
                 {
                     Name = p.GetName(),
                     HighScore = p.GetHighScore(),
                     Symbol = p.GetSymbol(),
-                    Color = (p.GetColor().R, p.GetColor().G, p.GetColor().B) // Assuming GetColor() returns a Color object
+                    Color = (p.GetColor().R, p.GetColor().G, p.GetColor().B)
                 }).ToList();
 
                 // Serialize the list of PlayerData objects to JSON
                 string jsonPlayers = JsonSerializer.Serialize(playersData);
-                File.WriteAllText(this._jsonFilepath, jsonPlayers); // Save JSON to file
+                File.WriteAllText(this._jsonFilepath, jsonPlayers); // Save to json file
             }
             catch (Exception ex)
             {
@@ -95,18 +87,18 @@ namespace TicTacToe.GameContent.PlayerContent
             }
         }
 
-        // LoadPlayers method
+        
         public List<IPlayer> LoadPlayers()
         {
             try
             {
-                // Read the JSON data from file
+                //Read the JSON data from file
                 string existingPlayers = File.ReadAllText(this._jsonFilepath);
 
-                // Deserialize the JSON to a list of PlayerData objects
+                //Deserialize the JSON to a list of Playerdata objects
                 List<PlayerData> playersData = JsonSerializer.Deserialize<List<PlayerData>>(existingPlayers) ?? new List<PlayerData>();
 
-                // Rebuild the _players list from the deserialized PlayerData objects
+                //Rebuild the _players list from the playerdata objects
                 this._players = new List<IPlayer>();
                 foreach (var data in playersData)
                 {
@@ -128,27 +120,7 @@ namespace TicTacToe.GameContent.PlayerContent
             return this._players;
         }
 
-        public string RemovePlayer(string name)
-        {
-            try
-            {
-                foreach (IPlayer player in this._players)
-                {
-                    if (player.GetName() == name)
-                    {
-                        this._players.Remove(player);
-
-                        return $"Player \"{name}\" removed!";
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-
-            return $"Could not remove player \"{name}\"; player not found!";
-        }
+        
 
         public void SetCurrentPlayer(string name)
         {
@@ -156,8 +128,7 @@ namespace TicTacToe.GameContent.PlayerContent
             {
                 if (this._players[i].GetName() == name)
                 {
-                    this._currentPlayerIndex = i; // Set current player index to the found player's index
-                    return;
+                    this._currentPlayerIndex = i; //Set current player index to the found player's index
                 }
             }
 
@@ -190,15 +161,15 @@ namespace TicTacToe.GameContent.PlayerContent
 
         public List<PlayerData> GetPlayersData()
         {
-            var playerDataList = new List<PlayerData>();
+            var playerDataList = new List<PlayerData>(); 
             foreach (var player in this._players)
             {
-                playerDataList.Add(player.GetPlayerData());
+                playerDataList.Add(player.GetPlayerData()); //Converts Player objects in _player to Playerdata obejcts
             }
             return playerDataList;                      
         }
 
-        public void RestorePlayers(List<PlayerData> playersData)            //Fattar verkligen inte syftet med dessa metoderna
+        public void RestorePlayers(List<PlayerData> playersData) 
         {
             // Clear existing players and restore from the data
             this._players.Clear();
