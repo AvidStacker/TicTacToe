@@ -19,9 +19,9 @@ namespace TicTacToe.Forms
             this._game.IllegalMove += this.OnIllegalMove;
             this._game.Draw += this.OnDraw;
             this._game.GameReset += this.OnGameReset;
-            UpdatePlayerDisplay();
-            InitializeButtonEvents(); // Initialize button events
-            UpdatePlayerHighscore();
+            this.UpdatePlayerDisplay();
+            this.InitializeButtonEvents(); // Initialize button events
+            this.UpdatePlayerHighScore();
         }
 
         private void InitializeButtonEvents()
@@ -33,96 +33,96 @@ namespace TicTacToe.Forms
                 {
                     int r = row; // Capture the current value of row
                     int c = col; // Capture the current value of col
-                    _boardButtons[r, c].Click += (sender, args) => OnCellClicked(r, c);
+                    this._boardButtons[r, c].Click += (sender, args) => this.OnCellClicked(r, c);
                 }
             }
 
             // Attach events to Save, Load, Reset, and New Game buttons
-            saveButton.Click += (sender, args) => _game.SaveGame("gameState.json");
-            loadButton.Click += (sender, args) => _game.LoadGame("gameState.json");
+            this.saveButton.Click += (sender, args) => this._game.SaveGame("gameState.json");
+            this.loadButton.Click += (sender, args) => this._game.LoadGame("gameState.json");
             
-            newGameButton.Click += (sender, args) => StartNewGame(); // New Game button event
+            this.newGameButton.Click += (sender, args) => this.StartNewGame(); // New Game button event
         }
 
         private void OnCellClicked(int row, int col)
         {
-            _game.UpdateBoard(row, col);
+            this._game.UpdateBoard(row, col);
         }
 
         private void UpdateBoardUI()
         {
-            char[,] boardData = _game.GetBoardState(); // Get the current board state
+            char[,] boardData = this._game.GetBoardState(); // Get the current board state
 
             for (int row = 0; row < 3; row++)
             {
                 for (int col = 0; col < 3; col++)
                 {
-                    _boardButtons[row, col].Text = boardData[row, col].ToString();
-                    _boardButtons[row, col].Enabled = boardData[row, col] == ' '; // Enable button only if cell is blank
+                    this._boardButtons[row, col].Text = boardData[row, col].ToString();
+                    this._boardButtons[row, col].Enabled = boardData[row, col] == ' '; // Enable button only if cell is blank
                 }
             }
         }
 
         private void UpdatePlayerDisplay()
         {
-            playerLabel.Text = $"Player's turn: {_game.CurrentPlayerName}";
+            this.playerLabel.Text = $"Player's turn: {this._game.CurrentPlayerName}";
         }
 
-        private void UpdatePlayerHighscore()
+        private void UpdatePlayerHighScore()
         {
-            highscore.Text = $"Highscore: {_game.CurrentPlayerHighScore}";
+            this.HighScore.Text = $"HighScore: {this._game.CurrentPlayerHighScore}";
         }
 
-
-        private void OnTurnChanged(string playerName)
+        private void OnTurnChanged()
         {
-            UpdatePlayerDisplay(); // Update player display when turn changes
-            UpdateBoardUI();
+            this.UpdatePlayerDisplay(); // Update player display when turn changes
+            this.UpdatePlayerHighScore();
+            this.UpdateBoardUI();
         }
 
         private void OnGameWon(string playerName)
         {
-            messageLabel.Text = $"Game won by {playerName}!";
-            DisableBoard(); // Disable buttons to prevent further moves
+            this.messageLabel.Text = $"Game won by {playerName}!";
+            this.DisableBoard(); // Disable buttons to prevent further moves
         }
 
         private void OnIllegalMove(string message)
         {
-            messageLabel.Text = message; // Display the illegal move message
+            this.messageLabel.Text = message; // Display the illegal move message
         }
 
         private void OnDraw()
         {
-            messageLabel.Text = "It's a draw!";
-            DisableBoard();
+            this.messageLabel.Text = "It's a draw!";
+            this.DisableBoard();
         }
 
         private void OnGameReset()
         {
-            messageLabel.Text = "Game reset!"; // Notify that the game has been reset
-            UpdateBoardUI(); // Clear board UI
-            EnableBoard(); // Re-enable board buttons
+            this.messageLabel.Text = "Game reset!"; // Notify that the game has been reset
+            this.UpdateBoardUI(); // Clear board UI
+            this.EnableBoard(); // Re-enable board buttons
         }
 
         private void StartNewGame()
         {
-            _game.StartNewGame(); // Reset the game state for a fresh start
-            messageLabel.Text = "Starting a new game!"; // Update message label
-            UpdateBoardUI(); // Clear the board UI
-            EnableBoard(); // Enable board buttons
-            UpdatePlayerDisplay(); // Show the initial player's turn
-            UpdatePlayerHighscore();
+            this._game.StartNewGame(); // Reset the game state for a fresh start
+            this.messageLabel.Text = "Starting a new game!"; // Update message label
+            this.UpdateBoardUI(); // Clear the board UI
+            this.EnableBoard(); // Enable board buttons
+            this.UpdatePlayerDisplay(); // Show the initial player's turn
+            this.UpdatePlayerHighScore();
         }
 
         private void DisableBoard()
         {
-            foreach (var button in _boardButtons)
+            foreach (var button in this._boardButtons)
                 button.Enabled = false; // Disable all buttons
         }
 
         private void EnableBoard()
         {
-            foreach (var button in _boardButtons)
+            foreach (var button in this._boardButtons)
                 button.Enabled = true; // Enable all buttons
         }
     }

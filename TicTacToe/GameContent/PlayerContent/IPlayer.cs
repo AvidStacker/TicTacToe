@@ -14,7 +14,7 @@ namespace TicTacToe.GameContent.PlayerContent
         Color GetColor();
         int GetHighScore();
 
-        void UpdateHighScore(int highscore);
+        void UpdateHighScore(int HighScore);
 
         PlayerData GetPlayerData();
     }

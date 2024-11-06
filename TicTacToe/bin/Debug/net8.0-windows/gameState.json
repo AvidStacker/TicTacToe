@@ -1,1 +1,1 @@
-{"Players":[{"Name":"Player 1","Symbol":"X","HighScore":0,"Color":{}},{"Name":"Player 2","Symbol":"O","HighScore":0,"Color":{}}],"CurrentPlayerSymbol":"O","CurrentPlayerName":"Player 2","BoardStateData":{"Grid":["O","X","O","X","O","X"," "," "," "],"CurrentState":0}}
+{"Players":[{"Name":"Player 1","Symbol":"X","HighScore":3,"Color":{}},{"Name":"Player 2","Symbol":"O","HighScore":1,"Color":{}}],"CurrentPlayerSymbol":"O","CurrentPlayerName":"Player 2","BoardStateData":{"Grid":["X","O","O"," ","X"," "," "," ","X"],"CurrentState":1}}

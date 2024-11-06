@@ -12,7 +12,7 @@ namespace TicTacToe.GameContent.PlayerContent
         private string name;
         private char symbol;
         private Color color;
-        private int highscore;
+        private int HighScore;
 
         public HumanPlayer(string name, char symbol, Color color)
         {
@@ -38,21 +38,18 @@ namespace TicTacToe.GameContent.PlayerContent
 
         public int GetHighScore()
         {
-            return this.highscore;
+            return this.HighScore;
         }
 
-        public void UpdateHighScore(int highscore)
+        public void UpdateHighScore(int HighScore)
         {
-            this.SetHighScore(highscore);
+            this.SetHighScore(HighScore);
         }
 
-        // Private method to set highscore
-        void SetHighScore(int highscore)
+        // Private method to set HighScore
+        void SetHighScore(int HighScore)
         {
-            if (highscore > this.highscore)
-            {
-                this.highscore = highscore;
-            }
+            this.HighScore = HighScore;
         }
 
         public PlayerData GetPlayerData()
@@ -61,7 +58,7 @@ namespace TicTacToe.GameContent.PlayerContent
             {
                 Name = this.name,
                 Symbol = this.symbol,
-                HighScore = this.highscore,
+                HighScore = this.HighScore,
                 Color = (this.color.R, this.color.G, this.color.B)
             };
         }

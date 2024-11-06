@@ -8,7 +8,7 @@ namespace TicTacToe.Forms
         private System.ComponentModel.IContainer components = null;
 
         // Declare UI components
-        private System.Windows.Forms.Label highscore;
+        private System.Windows.Forms.Label HighScore;
         private System.Windows.Forms.Label playerLabel;
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.Button newGameButton; // New Game button
@@ -28,7 +28,7 @@ namespace TicTacToe.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 
 
-            // Panel for the highscore, player turn, and game status labels
+            // Panel for the HighScore, player turn, and game status labels
             Panel infoPanel = new Panel
             {
                 Size = new System.Drawing.Size(400, 100),
@@ -37,17 +37,17 @@ namespace TicTacToe.Forms
                 BorderStyle = BorderStyle.FixedSingle
             };
 
-            // Highscore Label
-            this.highscore = new System.Windows.Forms.Label
+            // HighScore Label
+            this.HighScore = new System.Windows.Forms.Label
             {
                 AutoSize = true,
                 Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold),
                 ForeColor = System.Drawing.Color.DarkBlue,
                 Location = new System.Drawing.Point(10, 10),
-                Name = "highscore",
+                Name = "HighScore",
                 Size = new System.Drawing.Size(130, 20),
                 TabIndex = 0,
-                Text = "Highscore: 0"
+                Text = "HighScore: 0"
             };
 
             // Player Turn Label
@@ -77,7 +77,7 @@ namespace TicTacToe.Forms
             };
 
             // Add labels to the info panel
-            infoPanel.Controls.Add(this.highscore);
+            infoPanel.Controls.Add(this.HighScore);
             infoPanel.Controls.Add(this.playerLabel);
             infoPanel.Controls.Add(this.messageLabel);
 

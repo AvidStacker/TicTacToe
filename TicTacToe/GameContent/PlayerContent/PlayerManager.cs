@@ -21,10 +21,10 @@ namespace TicTacToe.GameContent.PlayerContent
 
         public PlayerManager()
         {
-            this._players = LoadPlayers(); //Laddar in spelare direkt när ett PlayerManager objekt skapas för att inte råka skriva över de existerande spelarna
+            this._players = this.LoadPlayers(); //Laddar in spelare direkt när ett PlayerManager objekt skapas för att inte råka skriva över de existerande spelarna
         }
 
-        public void UpdatePlayerHighscore(string name)
+        public void UpdatePlayerHighScore(string name)
         {
             foreach (IPlayer player in this._players)
             {
@@ -35,7 +35,7 @@ namespace TicTacToe.GameContent.PlayerContent
             }
         }
 
-        public int GetPlayerHighscore(string name)
+        public int GetPlayerHighScore(string name)
         {
 
             foreach (IPlayer player in this._players)
@@ -49,18 +49,18 @@ namespace TicTacToe.GameContent.PlayerContent
             return 0; //Default-return if the players doesn't exist
         }
 
-        public int GetHighestHighscore() //Returns the highest highscore of all players
+        public int GetHighestHighScore() //Returns the highest HighScore of all players
         {
-            int highscore = 0;
-            foreach(IPlayer player in _players)
+            int HighScore = 0;
+            foreach(IPlayer player in this._players)
             {
-                if(player.GetHighScore() > highscore)
+                if(player.GetHighScore() > HighScore)
                 {
-                    highscore = player.GetHighScore();
+                    HighScore = player.GetHighScore();
                 }
             }
 
-            return highscore;
+            return HighScore;
         }
 
         public void SavePlayers()

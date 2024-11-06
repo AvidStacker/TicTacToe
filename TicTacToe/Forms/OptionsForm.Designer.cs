@@ -31,7 +31,7 @@
             Options_Label = new Label();
             TurnOff_button = new Button();
             BackToMain_button = new Button();
-            ResetHighscoreButton = new Button();
+            ResetHighScoreButton = new Button();
             SuspendLayout();
             // 
             // Options_Label
@@ -68,16 +68,16 @@
             BackToMain_button.UseVisualStyleBackColor = true;
             BackToMain_button.Click += BackToMain_button_Click;
             // 
-            // ResetHighscoreButton
+            // ResetHighScoreButton
             // 
-            ResetHighscoreButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
-            ResetHighscoreButton.Location = new Point(168, 235);
-            ResetHighscoreButton.Name = "ResetHighscoreButton";
-            ResetHighscoreButton.Size = new Size(136, 39);
-            ResetHighscoreButton.TabIndex = 4;
-            ResetHighscoreButton.Text = "Reset Highscore";
-            ResetHighscoreButton.UseVisualStyleBackColor = true;
-            ResetHighscoreButton.Click += ResetHighScore_Click;
+            ResetHighScoreButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
+            ResetHighScoreButton.Location = new Point(168, 235);
+            ResetHighScoreButton.Name = "ResetHighScoreButton";
+            ResetHighScoreButton.Size = new Size(136, 39);
+            ResetHighScoreButton.TabIndex = 4;
+            ResetHighScoreButton.Text = "Reset HighScore";
+            ResetHighScoreButton.UseVisualStyleBackColor = true;
+            ResetHighScoreButton.Click += ResetHighScore_Click;
             // 
             // OptionsForm
             // 
@@ -88,7 +88,7 @@
             Controls.Add(BackToMain_button);
             Controls.Add(TurnOff_button);
             Controls.Add(Options_Label);
-            Controls.Add(ResetHighscoreButton);
+            Controls.Add(ResetHighScoreButton);
             Name = "OptionsForm";
             Text = "OptionsForm";
             Load += OptionsForm_Load_1;
@@ -101,6 +101,6 @@
         private Label Options_Label;
         private Button TurnOff_button;
         private Button BackToMain_button;
-        private Button ResetHighscoreButton; // Move the declaration here
+        private Button ResetHighScoreButton; // Move the declaration here
     }
 }
